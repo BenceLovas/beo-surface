@@ -1,5 +1,5 @@
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 100%;
   background-color: rgb(240, 242, 245);
   color: #1c1e21;
@@ -8,4 +8,5 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-y: scroll;
 }

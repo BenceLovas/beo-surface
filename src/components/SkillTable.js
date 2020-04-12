@@ -7,6 +7,7 @@ import Chip from "@material-ui/core/Chip";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
+import ColorPicker from "./ColorPicker";
 
 const useStyles = makeStyles({
   textInput: {
@@ -67,7 +68,8 @@ const SkillTable = ({
               className={classes.textInput}
               size="small"
             />
-            <IconButton type="submit">
+            <ColorPicker />
+            <IconButton type="submit" color="primary">
               <Add />
             </IconButton>
           </form>
@@ -84,7 +86,7 @@ const SkillTable = ({
               }}
             >
               <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
-              <IconButton onClick={removeSkill(skill.id)}>
+              <IconButton onClick={removeSkill(skill.id)} color="primary">
                 <Remove />
               </IconButton>
             </div>

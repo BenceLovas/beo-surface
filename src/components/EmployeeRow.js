@@ -66,7 +66,11 @@ const EmployeeRow = ({
             }}
           >
             <Chip label={employee.skills.length} />
-            <IconButton type="button" onClick={() => setIsOpen(!isOpen)}>
+            <IconButton
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              color="primary"
+            >
               <ExpandMore />
             </IconButton>
           </div>
@@ -103,7 +107,7 @@ const EmployeeRow = ({
             ))}
           </Collapse>
         </div>
-        <IconButton onClick={removeEmployee(employee.id)}>
+        <IconButton onClick={removeEmployee(employee.id)} color="primary">
           <Remove />
         </IconButton>
       </div>

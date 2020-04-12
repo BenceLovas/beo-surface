@@ -114,7 +114,11 @@ const EmployeeTable = ({
                 }}
               >
                 <Chip label={selectedSkills.length} />
-                <IconButton type="button" onClick={() => setIsOpen(!isOpen)}>
+                <IconButton
+                  type="button"
+                  onClick={() => setIsOpen(!isOpen)}
+                  color="primary"
+                >
                   <ExpandMore />
                 </IconButton>
               </div>
@@ -151,7 +155,7 @@ const EmployeeTable = ({
               </Collapse>
             </div>
 
-            <IconButton type="submit">
+            <IconButton type="submit" color="primary">
               <Add />
             </IconButton>
           </form>
