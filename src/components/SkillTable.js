@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Chip from "@material-ui/core/Chip";
-
+import FormatPaint from "@material-ui/icons/FormatPaint";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
 import ColorPicker from "./ColorPicker";
-
+import Slide from "@material-ui/core/Slide";
 const useStyles = makeStyles({
   textInput: {
     height: 40,
@@ -29,6 +29,11 @@ const SkillTable = ({
   newSkillNameError,
 }) => {
   const classes = useStyles();
+  const [isOpen, setOpen] = useState(false);
+
+  const toggleColorPicker = () => {
+    setOpen(!isOpen);
+  };
 
   return (
     <div style={{ padding: 16, border: "1px solid #eee" }}>
@@ -68,7 +73,11 @@ const SkillTable = ({
               className={classes.textInput}
               size="small"
             />
-            <ColorPicker />
+            <ColorPicker isOpen={isOpen} />
+
+            <IconButton onClick={toggleColorPicker}>
+              <FormatPaint />
+            </IconButton>
             <IconButton type="submit" color="primary">
               <Add />
             </IconButton>

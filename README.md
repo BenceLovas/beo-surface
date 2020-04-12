@@ -31,6 +31,8 @@
 * Show skills like chips (Add abbr filed for skills)
 * show skills as badges in table view - decide how it should behave when skill edition is active (first guess is to make it dissapear)
 
+* when opening employee list item to add skills - '-' and '+' and the space below it should not grow
+
 * ability to open and close SKILLS and EMPLOYEES table
   - on close:
     - divider stays just slides up

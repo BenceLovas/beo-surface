@@ -3,7 +3,27 @@ import { sortableContainer, sortableElement } from "react-sortable-hoc";
 import Surface from "./shared/Surface";
 
 const SortableItem = sortableElement(({ value }) => (
-  <Surface>{value.name}</Surface>
+  <Surface>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ padding: "10px 20px" }}>{value.name}</div>
+      <div
+        style={{
+          display: "flex",
+          width: 30,
+          height: 30,
+          flexDirection: "column",
+        }}
+      >
+        {Array(3)
+          .fill()
+          .map(() => (
+            <div
+              style={{ width: 30, height: 30, background: "#ddd", margin: 3 }}
+            ></div>
+          ))}
+      </div>
+    </div>
+  </Surface>
 ));
 
 const SortableContainer = sortableContainer(({ children }) => {
