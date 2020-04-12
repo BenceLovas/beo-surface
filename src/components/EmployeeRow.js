@@ -113,6 +113,7 @@ const EmployeeRow = ({
                 )}
               </Select>
             </FormControl>
+            <div>RANKING</div>
             <SortableList
               items={employee.skills}
               onSortEnd={onSortEnd(employee.id)}

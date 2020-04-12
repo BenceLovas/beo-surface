@@ -4,8 +4,17 @@ import Surface from "./shared/Surface";
 
 const SortableItem = sortableElement(({ value }) => (
   <Surface>
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div style={{ padding: "10px 20px" }}>{value.name}</div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ borderRight: "1px solid #bbb", padding: "0px 16px" }}>
+        {value.index + 1}
+      </div>
+      <div style={{ padding: "10px 20px", flexGrow: 1 }}>{value.name}</div>
       <div
         style={{
           display: "flex",
@@ -33,9 +42,12 @@ const SortableContainer = sortableContainer(({ children }) => {
 const SortableList = ({ items, onSortEnd }) => {
   return (
     <SortableContainer onSortEnd={onSortEnd}>
-      {items.map((value, index) => (
-        <SortableItem key={`item-${value.id}`} index={index} value={value} />
-      ))}
+      {items.map((value, index) => {
+        value.index = index;
+        return (
+          <SortableItem key={`item-${value.id}`} index={index} value={value} />
+        );
+      })}
     </SortableContainer>
   );
 };

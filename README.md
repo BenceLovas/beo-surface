@@ -27,6 +27,8 @@
 * recalculate skill order on skill removal - both from the use and from global
 * remove skill from user on skill removal
 
+* glow effect on rank refresh after dnd
+
 * Show skills like chips (Add abbr filed for skills)
 * show skills as badges in table view - decide how it should behave when skill edition is active (first guess is to make it dissapear)
 
