@@ -12,7 +12,7 @@ function App() {
   const [newSkillName, setNewSkillName] = useState('');
   const [newSkillNameError, setNewSkillNameError] = useState(false);
   
-  const [employees, setEmployees] = useState([{firstName: 'Aladár', lastName: 'Kis', id: uuidv4(), skills: []}])
+  const [employees, setEmployees] = useState([{firstName: 'Aladár', lastName: 'Kis', id: uuidv4(), skills: []}, {firstName: 'Pista', lastName: 'Nagy', id: uuidv4(), skills: []}])
 
   const [newFirstName, setNewFirstName] = useState('')
   const [newFirstNameError, setNewFirstNameError] = useState(false);
@@ -83,7 +83,7 @@ function App() {
       if (employee.id === employeeId) {
         return {
           ...employee,
-          skills: [...employee.skills, skill]
+          skills: [...skill]
         }
       } else {
         return employee;

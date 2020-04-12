@@ -6,7 +6,14 @@
 - order skill in addition order
 - Add skill addition to employee addition
 
+- skill list for emp. floats up - drops wide shadow 
+- show 'Select Skills' text on first open
+- rotate chevron on open
+- '+' and '-' are not aligned vertically
+
 - should be able to rank employee's skills
+
+- show skill rank next to emp's skill list names  like: 1 | skill bla
 
 - add a little color to the page (try adding color to '+' and '-' signs and chevron)
 - when chevron is pressed (skills are expanded on a user row) it should glow a little, or like a background light with negative box shadow
@@ -37,6 +44,13 @@
   - I guess if employee's skill ranking is weighted the most then the skill's employee rank is just switching people in the same shift if necessary after the schedule has been created we are gucci
   - First only have skill ranking for employees and we'll see
 
+- pick colors for skills
+  - 10 predefined colors
+  - one tint icon
+    - on click
+      - input fields shrinks
+      - small color 'balls' appear from the icon - slide out from beneath it
+  - add color indicators where I display skills - if possible
 
 - display somehow when a skill is removed from a employee by deleting the skill itself
 - take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much

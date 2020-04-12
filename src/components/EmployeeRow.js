@@ -8,7 +8,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Checkbox from '@material-ui/core/Checkbox';
+import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -20,9 +22,20 @@ const useStyles = makeStyles({
     padding: '5px 20px', 
     boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 2px 0px',
     backgroundColor: 'rgb(255, 255, 255)',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 })
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+    },
+  },
+};
 
 const EmployeeRow = ({
   skills,
@@ -31,59 +44,63 @@ const EmployeeRow = ({
   addSkillToEmployee
 }) => {
   const classes = useStyles();
-
-
-  const getUnownedSkillsOfEmployee = () => {
-    const unownedSkills = [];
-    for (let i = 0; i < skills.length; i++) {
-      let doesEmployeeKnowThisSkill = false;
-      for (let j = 0; j < employee.skills.length; j++) {
-        if (skills[i].id === employee.skills[j].id) {
-          doesEmployeeKnowThisSkill = true;
-        }
-      }
-      if (!doesEmployeeKnowThisSkill) {
-        unownedSkills.push(skills[i])
-      } 
-    }
-    return unownedSkills;
-  }
   const [isOpen, setIsOpen] = useState(false);
 
-  const addSkill = (employeeId) => (event) => {
-    const skill = event.target.value;
-    addSkillToEmployee(employeeId, skill)
+  const addMultipleSkills = (employeeId) => (event) => {
+    const { target: { value }} = event;
+    addSkillToEmployee(employeeId, value)
   }
-
+  
   return (
     <div>
       <div key={employee.id} className={classes.grid}>
         <div style={{ wordBreak: 'break-word', flexGrow: 1}}>{employee.firstName}</div>
         <div style={{ wordBreak: 'break-word', flexGrow: 1}}>{employee.lastName}</div>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexGrow: 1,     borderRadius: 30, 
-    padding: '5px 16px', 
-    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 2px 0px',
-    backgroundColor: 'rgb(255, 255, 255)',}}>
-          <Chip label={employee.skills.length} />
-          <IconButton type="button" onClick={() => setIsOpen(!isOpen)}><ExpandMore /></IconButton>
+        <div style={{
+          flexGrow: 1,
+          borderRadius: 30, 
+          padding: '5px 16px', 
+          boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 2px 0px',
+          backgroundColor: 'rgb(255, 255, 255)',
+      }}>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+            <Chip label={employee.skills.length} />
+            <IconButton type="button" onClick={() => setIsOpen(!isOpen)}><ExpandMore /></IconButton>
+          </div>
+          <Collapse in={isOpen}>
+            <FormControl variant="outlined" style={{ width: '100%', margin: '20px 0'}}>
+              <Select
+                multiple
+                value={employee.skills.length ? employee.skills : []}
+                onChange={addMultipleSkills(employee.id)}
+                input={<OutlinedInput
+                    name="age"
+                    id="outlined-age-simple"
+                  /> }
+                renderValue={() => 'Select Skills'}
+                MenuProps={MenuProps}
+              >
+                {skills.map((skill) => (console.log({skill}) ||
+                  <MenuItem key={skill.id} value={skill}>
+                    <Checkbox checked={employee.skills.some(employeeSkill => employeeSkill.id === skill.id)} />
+                    <ListItemText primary={skill.name} />
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            {employee.skills.map(skill => (
+              <div style={{
+                margin: '4px 0px',
+                borderRadius: 8, 
+                padding: '16px 16px', 
+                boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 2px 0px',
+                backgroundColor: 'rgb(255, 255, 255)',
+              }}>{skill.name}</div>
+            ))}
+          </Collapse>
         </div>
         <IconButton onClick={removeEmployee(employee.id)}><Remove /></IconButton>
       </div>
-      <Collapse in={isOpen}>
-        <FormControl style={{ width: '100%'}}>
-          <InputLabel>Add Skill</InputLabel>
-          <Select
-            onChange={addSkill(employee.id)}
-          >
-            {getUnownedSkillsOfEmployee().map(skill => (
-              <MenuItem value={skill} key={skill.id}>{skill.name}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {employee.skills.map(skill => (
-          <div>{skill.name}</div>
-        ))}
-      </Collapse>
     </div>
   )
 }
