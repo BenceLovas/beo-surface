@@ -98,13 +98,14 @@ const EmployeeTable = ({
               </div>
               <Collapse in={isOpen}>
                 <FormControl variant="outlined" style={{ width: '100%', margin: '20px 0'}}>
+                <InputLabel htmlFor="demo-mutiple-checkbox-label">Tag</InputLabel>
                   <Select
                     multiple
                     value={selectedSkills}
                     onChange={(event) => setSelectedSkills([...event.target.value])}
                     input={<OutlinedInput
                         name="age"
-                        id="outlined-age-simple"
+                        id="demo-mutiple-checkbox-label"
                       /> }
                     renderValue={() => 'Select Skills'}
                     MenuProps={MenuProps}

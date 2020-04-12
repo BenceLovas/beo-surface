@@ -1,11 +1,9 @@
 ## TODOS
 
-- Add skill addition to employee addition
-
-- skill list for emp. floats up - drops wide shadow 
-- show 'Select Skills' text on first open
 - rotate chevron on open
 - '+' and '-' are not aligned vertically
+- make emp's skill selector darker background, round corders, size = small, 
+- show 'Select Skills' text on first open
 
 - should be able to rank employee's skills
 
@@ -57,10 +55,17 @@
 
 - new items shoul appear nicly
 - should skill add to emp panel close after emp creation?
+- whole skill selector should be a button - pointer on hover
+
+- skill list for emp. floats up - drops wide shadow 
+
 
 - display somehow when a skill is removed from a employee by deleting the skill itself
 - take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
 - red plus sign when no skill added to employee - then chevron counter and if anything else fits than that
+
+- custom ordering for employees
+- custom ordering for skills (?)
 
 # Backlog ideas
 - activity log
