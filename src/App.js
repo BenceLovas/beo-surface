@@ -20,6 +20,9 @@ function App() {
   const [newLastName, setNewLastName] = useState('')
   const [newLastNameError, setNewLastNameError] = useState(false);
 
+  const [selectedSkills, setSelectedSkills] = useState([])
+
+
   const addSkill = event => {
     event.preventDefault();
     if (newSkillName.trim() === '') {
@@ -44,9 +47,10 @@ function App() {
       setNewLastNameError(true)
     }
     if (newFirstName.trim() === '' || newLastName.trim() === '') return;
-    setEmployees([{firstName: newFirstName.trim(), lastName: newLastName.trim(), id: uuidv4(), skills: []}, ...employees])
+    setEmployees([{firstName: newFirstName.trim(), lastName: newLastName.trim(), id: uuidv4(), skills: selectedSkills}, ...employees])
     setNewFirstName('')
     setNewLastName('')
+    setSelectedSkills([]);
     // set focus for first name
   }
 
@@ -102,6 +106,8 @@ function App() {
         newSkillNameError={newSkillNameError}
       />
       <EmployeeTable 
+        selectedSkills={selectedSkills} 
+        setSelectedSkills={setSelectedSkills}
         skills={skills}
         employees={employees}
         addEmployee={addEmployee}

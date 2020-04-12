@@ -1,9 +1,5 @@
 ## TODOS
 
-- user should be able to select multiple skills for an employee before input closes
-- handle gracefully if no more skill to add to employee
-- handle gracefully skill selector after a skill is added to an employee
-- order skill in addition order
 - Add skill addition to employee addition
 
 - skill list for emp. floats up - drops wide shadow 
@@ -13,7 +9,14 @@
 
 - should be able to rank employee's skills
 
+- employee input row behaves differently on toggle (Collapse show) - button scales up, input stays (this is good btw)
+- add error state if no skill selected for user
+
 - show skill rank next to emp's skill list names  like: 1 | skill bla
+
+- make skill selector rounded
+- animate html width change - when scrollbar appears the screen flickers
+- create custom scrollbar
 
 - add a little color to the page (try adding color to '+' and '-' signs and chevron)
 - when chevron is pressed (skills are expanded on a user row) it should glow a little, or like a background light with negative box shadow
@@ -51,6 +54,9 @@
       - input fields shrinks
       - small color 'balls' appear from the icon - slide out from beneath it
   - add color indicators where I display skills - if possible
+
+- new items shoul appear nicly
+- should skill add to emp panel close after emp creation?
 
 - display somehow when a skill is removed from a employee by deleting the skill itself
 - take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
