@@ -36,3 +36,14 @@
 - take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
 - red plus sign when no skill added to employee - then chevron counter and if anything else fits than that
 - on delete (employee or skill) the item should shrink and fade out while the other elements are closing together
+- try displaying counters as if they were in a cutout (negative box shadow)
+- display who is editing the page currently
+
+# Code quality
+- setup eslint on commit
+- introduce testing - cypress?
+- create card component - normal and rounded
+- create text input component
+- create colors = how to theme with material ui
+- text variants - heading, normal, bold normal
+- badge

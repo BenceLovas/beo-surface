@@ -43,7 +43,7 @@ const EmployeeTable = ({
     <div style={{padding: 16, border: '1px solid #eee', boxSizing: 'border-box'}}>
         <div style={{fontSize: 20, padding: '15px 0', letterSpacing: 2}}>EMPLOYEES <Chip label={employees.length} /></div>
         <div>
-          <div className={classes.grid} style={{  borderBottom: '1px solid rgb(200, 201, 202)', padding: '5px 0 5px 20px', letterSpacing: .5,}}>
+          <div className={classes.grid} style={{  borderBottom: '1px solid rgb(200, 201, 202)', padding: '5px 20px', letterSpacing: .5,}}>
             <div style={{ wordBreak: 'break-word'}}>First Name</div>
             <div style={{ wordBreak: 'break-word'}}>Last Name</div>
             <div style={{ wordBreak: 'break-word'}}>Skills</div>
