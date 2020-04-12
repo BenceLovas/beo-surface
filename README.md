@@ -1,6 +1,5 @@
 ## TODOS
 
-- rotate chevron on open
 - make emp's skill selector darker background, round corders, size = small,
 - show 'Select Skills' text on first open
 

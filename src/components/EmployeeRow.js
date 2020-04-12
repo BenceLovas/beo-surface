@@ -76,6 +76,10 @@ const EmployeeRow = ({
               type="button"
               onClick={() => setIsOpen(!isOpen)}
               color="primary"
+              style={{
+                transition: "transform .3s ease-in-out",
+                transform: isOpen ? "rotate(180deg)" : "",
+              }}
             >
               <ExpandMore />
             </IconButton>
@@ -84,6 +88,7 @@ const EmployeeRow = ({
             <FormControl
               variant="outlined"
               style={{ width: "100%", margin: "20px 0" }}
+              size="small"
             >
               <Select
                 multiple
