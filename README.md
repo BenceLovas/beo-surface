@@ -41,6 +41,7 @@
 * what if a skill is removed - it should be removed from the employees as well
 * should display error message if one user doesn't have a skill
 * primary skills and secondary skills - do I really need this?
+* add abbriviation to skills - and display those as chips on employee list
 
   - rank employees added to a skill - who is the most relevant in each skill (like rank high new receptionists to night shift rec skill to increase the change that they will be the replacement)
   - I guess if employee's skill ranking is weighted the most then the skill's employee rank is just switching people in the same shift if necessary after the schedule has been created we are gucci
@@ -63,6 +64,7 @@
 * skill list for emp. floats up - drops wide shadow
 
 * try using 'glass' surfaces
+* dark mode
 
 * edit emps
 * edit skills

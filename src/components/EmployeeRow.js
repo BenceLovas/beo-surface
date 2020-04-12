@@ -12,6 +12,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
+import SortableList from "./SortableList";
+import arrayMove from "array-move";
 
 const useStyles = makeStyles({
   grid: {
@@ -46,6 +48,12 @@ const EmployeeRow = ({
       target: { value },
     } = event;
     addSkillToEmployee(employeeId, value);
+  };
+
+  const [list, setList] = useState(employee.skills);
+
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    setList(() => arrayMove(list, oldIndex, newIndex));
   };
 
   return (
@@ -102,9 +110,7 @@ const EmployeeRow = ({
                 )}
               </Select>
             </FormControl>
-            {employee.skills.map((skill) => (
-              <Surface>{skill.name}</Surface>
-            ))}
+            <SortableList items={employee.skills} onSortEnd={onSortEnd} />
           </Collapse>
         </div>
         <IconButton onClick={removeEmployee(employee.id)} color="primary">
