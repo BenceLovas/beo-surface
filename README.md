@@ -2,7 +2,7 @@
 
 - rotate chevron on open
 - '+' and '-' are not aligned vertically
-- make emp's skill selector darker background, round corders, size = small, 
+- make emp's skill selector darker background, round corders, size = small,
 - show 'Select Skills' text on first open
 
 - should be able to rank employee's skills
@@ -10,7 +10,8 @@
 - employee input row behaves differently on toggle (Collapse show) - button scales up, input stays (this is good btw)
 - add error state if no skill selected for user
 
-- show skill rank next to emp's skill list names  like: 1 | skill bla
+- show skill rank next to emp's skill list names like: 1 | skill bla
+- emphasize rank 1, rank 2 and from there same boldness
 
 - make skill selector rounded
 - animate html width change - when scrollbar appears the screen flickers
@@ -41,11 +42,13 @@
 - what if a skill is removed - it should be removed from the employees as well
 - should display error message if one user doesn't have a skill
 - primary skills and secondary skills - do I really need this?
+
   - rank employees added to a skill - who is the most relevant in each skill (like rank high new receptionists to night shift rec skill to increase the change that they will be the replacement)
   - I guess if employee's skill ranking is weighted the most then the skill's employee rank is just switching people in the same shift if necessary after the schedule has been created we are gucci
   - First only have skill ranking for employees and we'll see
 
 - pick colors for skills
+
   - 10 predefined colors
   - one tint icon
     - on click
@@ -57,8 +60,12 @@
 - should skill add to emp panel close after emp creation?
 - whole skill selector should be a button - pointer on hover
 
-- skill list for emp. floats up - drops wide shadow 
+- skill list for emp. floats up - drops wide shadow
 
+- try using 'glass' surfaces
+
+- edit emps
+- edit skills
 
 - display somehow when a skill is removed from a employee by deleting the skill itself
 - take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
@@ -68,14 +75,15 @@
 - custom ordering for skills (?)
 
 # Backlog ideas
+
 - activity log
 - display who is editing the page currently
 
 # Code quality
-- setup eslint on commit
-- introduce testing - cypress?
+
 - create card component - normal and rounded
 - create text input component
 - create colors = how to theme with material ui
 - text variants - heading, normal, bold normal
 - badge
+- introduce testing - cypress?

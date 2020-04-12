@@ -15,6 +15,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import { makeStyles } from "@material-ui/core/styles";
+import Surface from "./shared/Surface";
 
 const useStyles = makeStyles({
   grid: {
@@ -82,112 +83,80 @@ const EmployeeTable = ({
           <div></div>
         </div>
 
-        <form
-          onSubmit={addEmployee}
-          className={classes.grid}
-          style={{
-            borderRadius: 8,
-            marginTop: 10,
-            padding: "5px 16px",
-            boxShadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-            backgroundColor: "rgb(255, 255, 255)",
-          }}
-        >
-          <TextField
-            className={classes.textInput}
-            type="text"
-            value={newFirstName}
-            onChange={updateFirstNameChange}
-            error={newFirstNameError}
-            placeholder={"First Name"}
-            variant="outlined"
-            size="small"
-          />
-          <TextField
-            className={classes.textInput}
-            type="text"
-            value={newLastName}
-            onChange={updateLastNameChange}
-            error={newLastNameError}
-            placeholder={"Last Name"}
-            variant="outlined"
-            size="small"
-          />
-          <div
-            style={{
-              flexGrow: 1,
-              borderRadius: 30,
-              padding: "5px 16px",
-              boxShadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-              backgroundColor: "rgb(255, 255, 255)",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <Chip label={selectedSkills.length} />
-              <IconButton type="button" onClick={() => setIsOpen(!isOpen)}>
-                <ExpandMore />
-              </IconButton>
-            </div>
-            <Collapse in={isOpen}>
-              <FormControl
-                variant="outlined"
-                style={{ width: "100%", margin: "20px 0" }}
+        <Surface>
+          <form onSubmit={addEmployee} className={classes.grid}>
+            <TextField
+              className={classes.textInput}
+              type="text"
+              value={newFirstName}
+              onChange={updateFirstNameChange}
+              error={newFirstNameError}
+              placeholder={"First Name"}
+              variant="outlined"
+              size="small"
+            />
+            <TextField
+              className={classes.textInput}
+              type="text"
+              value={newLastName}
+              onChange={updateLastNameChange}
+              error={newLastNameError}
+              placeholder={"Last Name"}
+              variant="outlined"
+              size="small"
+            />
+            <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
               >
-                <InputLabel htmlFor="demo-mutiple-checkbox-label">
-                  Tag
-                </InputLabel>
-                <Select
-                  multiple
-                  value={selectedSkills}
-                  onChange={(event) =>
-                    setSelectedSkills([...event.target.value])
-                  }
-                  input={
-                    <OutlinedInput
-                      name="age"
-                      id="demo-mutiple-checkbox-label"
-                    />
-                  }
-                  renderValue={() => "Select Skills"}
-                  MenuProps={MenuProps}
+                <Chip label={selectedSkills.length} />
+                <IconButton type="button" onClick={() => setIsOpen(!isOpen)}>
+                  <ExpandMore />
+                </IconButton>
+              </div>
+              <Collapse in={isOpen}>
+                <FormControl
+                  variant="outlined"
+                  style={{ width: "100%", margin: "20px 0" }}
                 >
-                  {skills.map((skill) => (
-                    <MenuItem key={skill.id} value={skill}>
-                      <Checkbox
-                        checked={selectedSkills.some(
-                          (selectedSkill) => selectedSkill.id === skill.id
-                        )}
-                      />
-                      <ListItemText primary={skill.name} />
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              {selectedSkills.map((skill) => (
-                <div
-                  style={{
-                    margin: "4px 0px",
-                    borderRadius: 8,
-                    padding: "16px 16px",
-                    boxShadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-                    backgroundColor: "rgb(255, 255, 255)",
-                  }}
-                >
-                  {skill.name}
-                </div>
-              ))}
-            </Collapse>
-          </div>
-          <IconButton type="submit">
-            <Add />
-          </IconButton>
-        </form>
+                  <Select
+                    multiple
+                    value={selectedSkills}
+                    onChange={(event) =>
+                      setSelectedSkills([...event.target.value])
+                    }
+                    input={<OutlinedInput />}
+                    renderValue={() => "Select Skills"}
+                    MenuProps={MenuProps}
+                  >
+                    {skills.map((skill) => (
+                      <MenuItem key={skill.id} value={skill}>
+                        <Checkbox
+                          checked={selectedSkills.some(
+                            (selectedSkill) => selectedSkill.id === skill.id
+                          )}
+                        />
+                        <ListItemText primary={skill.name} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+                {selectedSkills.map((skill) => (
+                  <Surface>{skill.name}</Surface>
+                ))}
+              </Collapse>
+            </div>
+
+            <IconButton type="submit">
+              <Add />
+            </IconButton>
+          </form>
+        </Surface>
+
         {employees.map((employee) => (
           <EmployeeRow
             key={employee.id}
