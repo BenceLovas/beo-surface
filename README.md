@@ -17,6 +17,10 @@
 
 * create custom scrollbar
 
+* indicate on skill ordering that those can be dragged - icon or '3d' bumps
+* add 'Ranking' header to employee skill ranking d&d
+* remove icons could be red or secondary color
+
 * when chevron is pressed (skills are expanded on a user row) it should glow a little, or like a background light with negative box shadow
 * on delete (employee or skill) the item should shrink and fade out while the other elements are closing together
 * try displaying counters as if they were in a cutout (negative box shadow)

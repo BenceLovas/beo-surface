@@ -13,7 +13,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
 import SortableList from "./SortableList";
-import arrayMove from "array-move";
 
 const useStyles = makeStyles({
   grid: {
@@ -39,6 +38,7 @@ const EmployeeRow = ({
   employee,
   removeEmployee,
   addSkillToEmployee,
+  sortEmployeeSkills,
 }) => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
@@ -50,10 +50,8 @@ const EmployeeRow = ({
     addSkillToEmployee(employeeId, value);
   };
 
-  const [list, setList] = useState(employee.skills);
-
-  const onSortEnd = ({ oldIndex, newIndex }) => {
-    setList(() => arrayMove(list, oldIndex, newIndex));
+  const onSortEnd = (employeeId) => ({ oldIndex, newIndex }) => {
+    sortEmployeeSkills(employeeId, oldIndex, newIndex);
   };
 
   return (
@@ -110,7 +108,10 @@ const EmployeeRow = ({
                 )}
               </Select>
             </FormControl>
-            <SortableList items={employee.skills} onSortEnd={onSortEnd} />
+            <SortableList
+              items={employee.skills}
+              onSortEnd={onSortEnd(employee.id)}
+            />
           </Collapse>
         </div>
         <IconButton onClick={removeEmployee(employee.id)} color="primary">

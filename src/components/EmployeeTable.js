@@ -57,6 +57,7 @@ const EmployeeTable = ({
   newLastNameError,
   selectedSkills,
   setSelectedSkills,
+  sortEmployeeSkills,
 }) => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = useState(false);
@@ -168,6 +169,7 @@ const EmployeeTable = ({
             employee={employee}
             removeEmployee={removeEmployee}
             addSkillToEmployee={addSkillToEmployee}
+            sortEmployeeSkills={sortEmployeeSkills}
           />
         ))}
       </div>
