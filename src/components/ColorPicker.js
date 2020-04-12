@@ -4,17 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import RadioButton from "./RadioButton";
 import Slide from "@material-ui/core/Slide";
 
-const colors = ["#F27312", "#F48D13", "#F0C213", "#439975", "#1A3D48"];
-const defaultColor = "#123566";
-
-const ColorPicker = ({ isOpen }) => {
-  const [selectedValue, setSelectedValue] = React.useState(defaultColor);
-
+const ColorPicker = ({ isOpen, colors, selectedValue, setSelectedValue }) => {
   return (
     <Slide direction="left" in={isOpen} mountOnEnter unmountOnExit>
       <div>
         {colors.map((color) => (
           <RadioButton
+            key={color}
             value={color}
             color={color}
             selectedValue={selectedValue}

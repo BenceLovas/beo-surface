@@ -20,6 +20,15 @@ const useStyles = makeStyles({
     gridTemplateColumns: "1fr 1fr 1fr 48px",
     alignItems: "center",
   },
+  textInput: {
+    marginTop: 4,
+    height: 40,
+    borderRadius: 20,
+    background: "rgb(240, 242, 245)",
+    [`& fieldset`]: {
+      borderRadius: 20,
+    },
+  },
 });
 
 const ITEM_HEIGHT = 48;
@@ -91,6 +100,7 @@ const EmployeeRow = ({
               size="small"
             >
               <Select
+                className={classes.textInput}
                 multiple
                 value={employee.skills.length ? employee.skills : []}
                 onChange={addMultipleSkills(employee.id)}
@@ -98,19 +108,16 @@ const EmployeeRow = ({
                 renderValue={() => "Select Skills"}
                 MenuProps={MenuProps}
               >
-                {skills.map(
-                  (skill) =>
-                    console.log({ skill }) || (
-                      <MenuItem key={skill.id} value={skill}>
-                        <Checkbox
-                          checked={employee.skills.some(
-                            (employeeSkill) => employeeSkill.id === skill.id
-                          )}
-                        />
-                        <ListItemText primary={skill.name} />
-                      </MenuItem>
-                    )
-                )}
+                {skills.map((skill) => (
+                  <MenuItem key={skill.id} value={skill}>
+                    <Checkbox
+                      checked={employee.skills.some(
+                        (employeeSkill) => employeeSkill.id === skill.id
+                      )}
+                    />
+                    <ListItemText primary={skill.name} />
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
             <div>RANKING</div>
@@ -120,7 +127,7 @@ const EmployeeRow = ({
             />
           </Collapse>
         </div>
-        <IconButton onClick={removeEmployee(employee.id)} color="primary">
+        <IconButton onClick={removeEmployee(employee.id)} color="secondary">
           <Remove />
         </IconButton>
       </div>

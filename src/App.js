@@ -4,10 +4,13 @@ import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
 import arrayMove from "array-move";
 
+const colors = ["#F27312", "#F48D13", "#F0C213", "#439975", "#1A3D48"];
+const defaultColor = "#F48D13";
+
 function App() {
   const [skills, setSkills] = useState([
-    { name: "Skill 1", id: uuidv4() },
-    { name: "Skill 2", id: uuidv4() },
+    { name: "Skill 1", id: uuidv4(), color: "#F27312" },
+    { name: "Skill 2", id: uuidv4(), color: "#F48D13" },
   ]);
 
   const [newSkillName, setNewSkillName] = useState("");
@@ -26,13 +29,19 @@ function App() {
 
   const [selectedSkills, setSelectedSkills] = useState([]);
 
+  const [selectedColor, setSelectedColor] = useState(defaultColor);
+
   const addSkill = (event) => {
     event.preventDefault();
     if (newSkillName.trim() === "") {
       setNewSkillNameError(true);
       return;
     }
-    setSkills([{ name: newSkillName.trim(), id: uuidv4() }, ...skills]);
+    setSkills([
+      { name: newSkillName.trim(), id: uuidv4(), color: selectedColor },
+      ...skills,
+    ]);
+    setSelectedColor(defaultColor);
     setNewSkillName("");
   };
 
@@ -124,6 +133,9 @@ function App() {
   return (
     <div style={{ padding: 10 }}>
       <SkillTable
+        colors={colors}
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
         skills={skills}
         addSkill={addSkill}
         removeSkill={removeSkill}

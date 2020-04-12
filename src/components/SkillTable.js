@@ -27,6 +27,9 @@ const SkillTable = ({
   newSkillName,
   updateSkillNameChange,
   newSkillNameError,
+  selectedColor,
+  setSelectedColor,
+  colors,
 }) => {
   const classes = useStyles();
   const [isOpen, setOpen] = useState(false);
@@ -73,7 +76,12 @@ const SkillTable = ({
               className={classes.textInput}
               size="small"
             />
-            <ColorPicker isOpen={isOpen} />
+            <ColorPicker
+              isOpen={isOpen}
+              selectedValue={selectedColor}
+              setSelectedValue={setSelectedColor}
+              colors={colors}
+            />
 
             <IconButton onClick={toggleColorPicker}>
               <FormatPaint />
@@ -95,7 +103,7 @@ const SkillTable = ({
               }}
             >
               <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
-              <IconButton onClick={removeSkill(skill.id)} color="primary">
+              <IconButton onClick={removeSkill(skill.id)} color="secondary">
                 <Remove />
               </IconButton>
             </div>

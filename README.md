@@ -3,24 +3,13 @@
 - make emp's skill selector darker background, round corders, size = small,
 - show 'Select Skills' text on first open
 
-- should be able to rank employee's skills
-
-* input field error messages show up above it - like it is a paper as well just coming out from below the input
 * employee input row behaves differently on toggle (Collapse show) - button scales up, input stays (this is good btw)
 * add error state if no skill selected for user
 
-* show skill rank next to emp's skill list names like: 1 | skill bla
-* emphasize rank 1, rank 2 and from there same boldness
-
-* make skill selector rounded
-
 * create custom scrollbar
 
-* indicate on skill ordering that those can be dragged - icon or '3d' bumps
-* add 'Ranking' header to employee skill ranking d&d
 * remove icons could be red or secondary color
 
-* when chevron is pressed (skills are expanded on a user row) it should glow a little, or like a background light with negative box shadow
 * on delete (employee or skill) the item should shrink and fade out while the other elements are closing together
 * try displaying counters as if they were in a cutout (negative box shadow)
 
@@ -54,6 +43,8 @@
   - I guess if employee's skill ranking is weighted the most then the skill's employee rank is just switching people in the same shift if necessary after the schedule has been created we are gucci
   - First only have skill ranking for employees and we'll see
 
+* skill multiple selector - corner not rounded after selected state
+
 * pick colors for skills
 
   - 10 predefined colors
@@ -80,6 +71,7 @@
 * take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
 * red plus sign when no skill added to employee - then chevron counter and if anything else fits than that
 
+* input field error messages show up above it - like it is a paper as well just coming out from below the input
 * custom ordering for employees
 * custom ordering for skills (?)
 
