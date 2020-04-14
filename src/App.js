@@ -9,13 +9,13 @@ const defaultColor = "#F48D13";
 
 function App() {
   const [skills, setSkills] = useState([
-    { name: "Skill 1", id: uuidv4(), color: "#F27312" },
-    { name: "Skill 2", id: uuidv4(), color: "#F48D13" },
+    { name: "Skill 1", id: uuidv4(), color: "#F27312", abbreviation: "S1" },
+    { name: "Skill 2", id: uuidv4(), color: "#F48D13", abbreviation: "S2" },
   ]);
 
   const [newSkillName, setNewSkillName] = useState("");
   const [newSkillNameError, setNewSkillNameError] = useState(false);
-
+  const [newSkillAbbreviation, setNewSkillAbbreviation] = useState("");
   const [employees, setEmployees] = useState([
     { firstName: "Aladár", lastName: "Kis", id: uuidv4(), skills: [] },
     { firstName: "Pista", lastName: "Nagy", id: uuidv4(), skills: [] },
@@ -38,15 +38,25 @@ function App() {
       return;
     }
     setSkills([
-      { name: newSkillName.trim(), id: uuidv4(), color: selectedColor },
+      {
+        name: newSkillName.trim(),
+        id: uuidv4(),
+        color: selectedColor,
+        abbreviation: newSkillAbbreviation,
+      },
       ...skills,
     ]);
     setSelectedColor(defaultColor);
     setNewSkillName("");
+    setNewSkillAbbreviation("");
   };
 
   const removeSkill = (id) => () => {
     setSkills(skills.filter((skill) => skill.id !== id));
+  };
+
+  const updateSkillAbbreviation = (event) => {
+    setNewSkillAbbreviation(event.target.value);
   };
 
   const addEmployee = (event) => {
@@ -133,6 +143,8 @@ function App() {
   return (
     <div style={{ padding: 10 }}>
       <SkillTable
+        newSkillAbbreviation={newSkillAbbreviation}
+        updateSkillAbbreviation={updateSkillAbbreviation}
         colors={colors}
         selectedColor={selectedColor}
         setSelectedColor={setSelectedColor}

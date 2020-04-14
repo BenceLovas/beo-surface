@@ -30,6 +30,8 @@ const SkillTable = ({
   selectedColor,
   setSelectedColor,
   colors,
+  newSkillAbbreviation,
+  updateSkillAbbreviation,
 }) => {
   const classes = useStyles();
   const [isOpen, setOpen] = useState(false);
@@ -69,6 +71,19 @@ const SkillTable = ({
               error={newSkillNameError}
               placeholder={"Enter a new skill"}
               style={{
+                flexGrow: 2,
+                marginTop: 4,
+              }}
+              variant="outlined"
+              className={classes.textInput}
+              size="small"
+            />
+            <TextField
+              type="text"
+              value={newSkillAbbreviation}
+              onChange={updateSkillAbbreviation}
+              placeholder={"Enter abbreviation"}
+              style={{
                 flexGrow: 1,
                 marginTop: 4,
               }}
@@ -103,6 +118,10 @@ const SkillTable = ({
               }}
             >
               <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
+              <Chip
+                style={{ background: skill.color }}
+                label={skill.abbreviation}
+              />
               <IconButton onClick={removeSkill(skill.id)} color="secondary">
                 <Remove />
               </IconButton>
