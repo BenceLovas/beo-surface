@@ -3,6 +3,14 @@
 - add text color to skill colors (a few colors are not well suited with black font)
 - create a skill column component to be able to add it to employee form as welll
 
+- cast abbreviation to uppercase
+- limit abbreviation to 3 chars
+- draggable skill item in skill list - text should not be selected when dragged
+- grab icon when hover over skill
+- hold icon while dragging
+
+- when grabbin a skill in emp's skill column the order is messed up
+
 - Show skills like chips (Add abbr filed for skills)
 - show skills as badges in table view - decide how it should behave when skill edition is active (first guess is to make it dissapear)
 

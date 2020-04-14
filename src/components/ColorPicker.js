@@ -10,9 +10,9 @@ const ColorPicker = ({ isOpen, colors, selectedValue, setSelectedValue }) => {
       <div>
         {colors.map((color) => (
           <RadioButton
-            key={color}
-            value={color}
-            color={color}
+            key={color.background}
+            value={color.background}
+            color={color.background}
             selectedValue={selectedValue}
             setSelectedValue={setSelectedValue}
           />

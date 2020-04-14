@@ -121,7 +121,10 @@ const SkillTable = ({
               >
                 <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
                 <Chip
-                  style={{ background: skill.color }}
+                  style={{
+                    background: skill.color.background,
+                    color: skill.color.text,
+                  }}
                   label={skill.abbreviation}
                 />
               </div>

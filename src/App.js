@@ -4,13 +4,34 @@ import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
 import arrayMove from "array-move";
 
-const colors = ["#F27312", "#F48D13", "#F0C213", "#439975", "#1A3D48"];
+const colors = [
+  {
+    background: "#F27312",
+    text: "#1c1e21",
+  },
+  {
+    background: "#F48D13",
+    text: "#1c1e21",
+  },
+  {
+    background: "#F0C213",
+    text: "#1c1e21",
+  },
+  {
+    background: "#439975",
+    text: "#fff",
+  },
+  {
+    background: "#1A3D48",
+    text: "#fff",
+  },
+];
 const defaultColor = "#F48D13";
 
 function App() {
   const [skills, setSkills] = useState([
-    { name: "Skill 1", id: uuidv4(), color: "#F27312", abbreviation: "S1" },
-    { name: "Skill 2", id: uuidv4(), color: "#F48D13", abbreviation: "S2" },
+    { name: "Skill 1", id: uuidv4(), color: colors[0], abbreviation: "S1" },
+    { name: "Skill 2", id: uuidv4(), color: colors[1], abbreviation: "S2" },
   ]);
 
   const [newSkillName, setNewSkillName] = useState("");
@@ -41,7 +62,7 @@ function App() {
       {
         name: newSkillName.trim(),
         id: uuidv4(),
-        color: selectedColor,
+        color: colors.find((color) => selectedColor === color.background),
         abbreviation: newSkillAbbreviation,
       },
       ...skills,

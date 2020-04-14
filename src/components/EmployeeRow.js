@@ -84,7 +84,10 @@ const EmployeeRow = ({
               <Chip label={employee.skills.length} />
               {employee.skills.map((skill) => (
                 <Chip
-                  style={{ background: skill.color }}
+                  style={{
+                    background: skill.color.background,
+                    color: skill.color.text,
+                  }}
                   label={skill.abbreviation}
                 />
               ))}
