@@ -1,6 +1,4 @@
 import React from "react";
-import Radio from "@material-ui/core/Radio";
-import { makeStyles } from "@material-ui/core/styles";
 import RadioButton from "./RadioButton";
 import Slide from "@material-ui/core/Slide";
 

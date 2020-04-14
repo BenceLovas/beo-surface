@@ -1,7 +1,6 @@
 ## TODOS
 
-- add text color to skill colors (a few colors are not well suited with black font)
-- create a skill column component to be able to add it to employee form as welll
+- align skill chip in skill table to align with input field
 
 - cast abbreviation to uppercase
 - limit abbreviation to 3 chars

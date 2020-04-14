@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Remove from "@material-ui/icons/Remove";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
-import Chip from "@material-ui/core/Chip";
-import Collapse from "@material-ui/core/Collapse";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import Checkbox from "@material-ui/core/Checkbox";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
-import SortableList from "./SortableList";
+import SkillSelector from "./SkillSelector";
 
 const useStyles = makeStyles({
   grid: {
@@ -20,27 +11,7 @@ const useStyles = makeStyles({
     gridTemplateColumns: "1fr 1fr 1fr 48px",
     alignItems: "center",
   },
-  textInput: {
-    marginTop: 4,
-    height: 40,
-    borderRadius: 20,
-    background: "rgb(240, 242, 245)",
-    [`& fieldset`]: {
-      borderRadius: 20,
-    },
-  },
 });
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 
 const EmployeeRow = ({
   skills,
@@ -50,7 +21,6 @@ const EmployeeRow = ({
   sortEmployeeSkills,
 }) => {
   const classes = useStyles();
-  const [isOpen, setIsOpen] = useState(false);
 
   const addMultipleSkills = (employeeId) => (event) => {
     const {
@@ -72,72 +42,12 @@ const EmployeeRow = ({
         <div style={{ wordBreak: "break-word", flexGrow: 1 }}>
           {employee.lastName}
         </div>
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <Chip label={employee.skills.length} />
-              {employee.skills.map((skill) => (
-                <Chip
-                  style={{
-                    background: skill.color.background,
-                    color: skill.color.text,
-                  }}
-                  label={skill.abbreviation}
-                />
-              ))}
-            </div>
-            <IconButton
-              type="button"
-              onClick={() => setIsOpen(!isOpen)}
-              color="primary"
-              style={{
-                transition: "transform .3s ease-in-out",
-                transform: isOpen ? "rotate(180deg)" : "",
-              }}
-            >
-              <ExpandMore />
-            </IconButton>
-          </div>
-          <Collapse in={isOpen}>
-            <FormControl
-              variant="outlined"
-              style={{ width: "100%", margin: "20px 0" }}
-              size="small"
-            >
-              <Select
-                className={classes.textInput}
-                multiple
-                value={employee.skills.length ? employee.skills : []}
-                onChange={addMultipleSkills(employee.id)}
-                input={<OutlinedInput name="age" id="outlined-age-simple" />}
-                renderValue={() => "Select Skills"}
-                MenuProps={MenuProps}
-              >
-                {skills.map((skill) => (
-                  <MenuItem key={skill.id} value={skill}>
-                    <Checkbox
-                      checked={employee.skills.some(
-                        (employeeSkill) => employeeSkill.id === skill.id
-                      )}
-                    />
-                    <ListItemText primary={skill.name} />
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <div>RANKING</div>
-            <SortableList
-              items={employee.skills}
-              onSortEnd={onSortEnd(employee.id)}
-            />
-          </Collapse>
-        </div>
+        <SkillSelector
+          addMultipleSkills={addMultipleSkills(employee.id)}
+          skillsSelected={employee.skills}
+          skills={skills}
+          onSortEnd={onSortEnd(employee.id)}
+        />
         <IconButton onClick={removeEmployee(employee.id)} color="secondary">
           <Remove />
         </IconButton>

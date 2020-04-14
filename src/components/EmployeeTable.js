@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Add from "@material-ui/icons/Add";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import EmployeeRow from "./EmployeeRow";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import Chip from "@material-ui/core/Chip";
-import Collapse from "@material-ui/core/Collapse";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import Checkbox from "@material-ui/core/Checkbox";
-import ListItemText from "@material-ui/core/ListItemText";
+import SkillSelector from "./SkillSelector";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
+import arrayMove from "array-move";
 
 const useStyles = makeStyles({
   grid: {
@@ -32,16 +25,6 @@ const useStyles = makeStyles({
     },
   },
 });
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
 
 const EmployeeTable = ({
   skills,
@@ -60,7 +43,10 @@ const EmployeeTable = ({
   sortEmployeeSkills,
 }) => {
   const classes = useStyles();
-  const [isOpen, setIsOpen] = useState(false);
+
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    setSelectedSkills(arrayMove(selectedSkills, oldIndex, newIndex));
+  };
 
   return (
     <div
@@ -106,56 +92,12 @@ const EmployeeTable = ({
               variant="outlined"
               size="small"
             />
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <Chip label={selectedSkills.length} />
-                <IconButton
-                  type="button"
-                  onClick={() => setIsOpen(!isOpen)}
-                  color="primary"
-                >
-                  <ExpandMore />
-                </IconButton>
-              </div>
-              <Collapse in={isOpen}>
-                <FormControl
-                  variant="outlined"
-                  style={{ width: "100%", margin: "20px 0" }}
-                >
-                  <Select
-                    multiple
-                    value={selectedSkills}
-                    onChange={(event) =>
-                      setSelectedSkills([...event.target.value])
-                    }
-                    input={<OutlinedInput />}
-                    renderValue={() => "Select Skills"}
-                    MenuProps={MenuProps}
-                  >
-                    {skills.map((skill) => (
-                      <MenuItem key={skill.id} value={skill}>
-                        <Checkbox
-                          checked={selectedSkills.some(
-                            (selectedSkill) => selectedSkill.id === skill.id
-                          )}
-                        />
-                        <ListItemText primary={skill.name} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                {selectedSkills.map((skill) => (
-                  <Surface>{skill.name}</Surface>
-                ))}
-              </Collapse>
-            </div>
-
+            <SkillSelector
+              addMultipleSkills={(e) => setSelectedSkills([...e.target.value])}
+              skillsSelected={selectedSkills}
+              skills={skills}
+              onSortEnd={onSortEnd}
+            />
             <IconButton type="submit" color="primary">
               <Add />
             </IconButton>

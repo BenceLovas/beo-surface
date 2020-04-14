@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { sortableContainer, sortableElement } from "react-sortable-hoc";
 import Surface from "./shared/Surface";
 

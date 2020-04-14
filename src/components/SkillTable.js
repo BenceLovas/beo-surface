@@ -8,7 +8,7 @@ import FormatPaint from "@material-ui/icons/FormatPaint";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
 import ColorPicker from "./ColorPicker";
-import Slide from "@material-ui/core/Slide";
+
 const useStyles = makeStyles({
   textInput: {
     height: 40,
