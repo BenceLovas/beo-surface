@@ -108,20 +108,23 @@ const SkillTable = ({
         </Surface>
         {skills.map((skill) => (
           <Surface>
-            <div
-              key={skill.id}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                letterSpacing: 0.5,
-              }}
-            >
-              <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
-              <Chip
-                style={{ background: skill.color }}
-                label={skill.abbreviation}
-              />
+            <div style={{ display: "flex" }}>
+              <div
+                key={skill.id}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  letterSpacing: 0.5,
+                  flexGrow: 1,
+                }}
+              >
+                <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
+                <Chip
+                  style={{ background: skill.color }}
+                  label={skill.abbreviation}
+                />
+              </div>
               <IconButton onClick={removeSkill(skill.id)} color="secondary">
                 <Remove />
               </IconButton>

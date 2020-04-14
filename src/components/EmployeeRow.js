@@ -80,7 +80,15 @@ const EmployeeRow = ({
               alignItems: "center",
             }}
           >
-            <Chip label={employee.skills.length} />
+            <div>
+              <Chip label={employee.skills.length} />
+              {employee.skills.map((skill) => (
+                <Chip
+                  style={{ background: skill.color }}
+                  label={skill.abbreviation}
+                />
+              ))}
+            </div>
             <IconButton
               type="button"
               onClick={() => setIsOpen(!isOpen)}

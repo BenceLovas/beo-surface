@@ -1,7 +1,6 @@
 ## TODOS
 
 - add text color to skill colors (a few colors are not well suited with black font)
-- add skill abrreviation chips to skill column
 - create a skill column component to be able to add it to employee form as welll
 
 - Show skills like chips (Add abbr filed for skills)
