@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     height: 40,
     borderRadius: 20,
     background: "rgb(240, 242, 245)",
-    [`& fieldset`]: {
+    "& fieldset": {
       borderRadius: 20,
     },
   },
@@ -69,7 +69,7 @@ const SkillTable = ({
               value={newSkillName}
               onChange={updateSkillNameChange}
               error={newSkillNameError}
-              placeholder={"Enter a new skill"}
+              placeholder="Enter a new skill"
               style={{
                 flexGrow: 2,
                 marginTop: 4,
@@ -82,7 +82,7 @@ const SkillTable = ({
               type="text"
               value={newSkillAbbreviation}
               onChange={updateSkillAbbreviation}
-              placeholder={"Enter abbreviation"}
+              placeholder="Enter abbreviation"
               style={{
                 flexGrow: 1,
                 marginTop: 4,

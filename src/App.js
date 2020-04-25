@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import arrayMove from "array-move";
 import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
-import arrayMove from "array-move";
 
 const colors = [
   {
@@ -30,16 +30,36 @@ const defaultColor = "#F48D13";
 
 function App() {
   const [skills, setSkills] = useState([
-    { name: "Skill 1", id: uuidv4(), color: colors[0], abbreviation: "S1" },
-    { name: "Skill 2", id: uuidv4(), color: colors[1], abbreviation: "S2" },
+    {
+      name: "Skill 1",
+      id: uuidv4(),
+      color: colors[0],
+      abbreviation: "S1",
+    },
+    {
+      name: "Skill 2",
+      id: uuidv4(),
+      color: colors[1],
+      abbreviation: "S2",
+    },
   ]);
 
   const [newSkillName, setNewSkillName] = useState("");
   const [newSkillNameError, setNewSkillNameError] = useState(false);
   const [newSkillAbbreviation, setNewSkillAbbreviation] = useState("");
   const [employees, setEmployees] = useState([
-    { firstName: "Aladár", lastName: "Kis", id: uuidv4(), skills: [] },
-    { firstName: "Pista", lastName: "Nagy", id: uuidv4(), skills: [] },
+    {
+      firstName: "Aladár",
+      lastName: "Kis",
+      id: uuidv4(),
+      skills: [],
+    },
+    {
+      firstName: "Pista",
+      lastName: "Nagy",
+      id: uuidv4(),
+      skills: [],
+    },
   ]);
 
   const [newFirstName, setNewFirstName] = useState("");
@@ -140,9 +160,8 @@ function App() {
             ...employee,
             skills: [...skill],
           };
-        } else {
-          return employee;
         }
+        return employee;
       })
     );
   };
@@ -155,9 +174,8 @@ function App() {
             ...employee,
             skills: arrayMove(employee.skills, oldIndex, newIndex),
           };
-        } else {
-          return employee;
         }
+        return employee;
       })
     );
   };

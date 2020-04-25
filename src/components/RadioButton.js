@@ -15,7 +15,7 @@ const RadioButton = ({ value, color, setSelectedValue, selectedValue }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <Radio
         checked={selectedValue === value}
         onChange={handleChange}
@@ -25,7 +25,7 @@ const RadioButton = ({ value, color, setSelectedValue, selectedValue }) => {
         }}
         color="default"
       />
-    </Fragment>
+    </>
   );
 };
 

@@ -2,13 +2,13 @@ import React from "react";
 import Add from "@material-ui/icons/Add";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
-import EmployeeRow from "./EmployeeRow";
 import Chip from "@material-ui/core/Chip";
+import { makeStyles } from "@material-ui/core/styles";
+import arrayMove from "array-move";
+import EmployeeRow from "./EmployeeRow";
 import SkillSelector from "./SkillSelector";
 
-import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
-import arrayMove from "array-move";
 
 const useStyles = makeStyles({
   grid: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     height: 40,
     borderRadius: 20,
     background: "rgb(240, 242, 245)",
-    [`& fieldset`]: {
+    "& fieldset": {
       borderRadius: 20,
     },
   },
@@ -67,7 +67,7 @@ const EmployeeTable = ({
           <div style={{ wordBreak: "break-word" }}>First Name</div>
           <div style={{ wordBreak: "break-word" }}>Last Name</div>
           <div style={{ wordBreak: "break-word" }}>Skills</div>
-          <div></div>
+          <div />
         </div>
 
         <Surface>
@@ -78,7 +78,7 @@ const EmployeeTable = ({
               value={newFirstName}
               onChange={updateFirstNameChange}
               error={newFirstNameError}
-              placeholder={"First Name"}
+              placeholder="First Name"
               variant="outlined"
               size="small"
             />
@@ -88,7 +88,7 @@ const EmployeeTable = ({
               value={newLastName}
               onChange={updateLastNameChange}
               error={newLastNameError}
-              placeholder={"Last Name"}
+              placeholder="Last Name"
               variant="outlined"
               size="small"
             />

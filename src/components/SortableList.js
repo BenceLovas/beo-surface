@@ -27,29 +27,32 @@ const SortableItem = sortableElement(({ value }) => (
           .fill()
           .map(() => (
             <div
-              style={{ width: 30, height: 30, background: "#ddd", margin: 3 }}
-            ></div>
+              style={{
+                width: 30,
+                height: 30,
+                background: "#ddd",
+                margin: 3,
+              }}
+            />
           ))}
       </div>
     </div>
   </Surface>
 ));
 
-const SortableContainer = sortableContainer(({ children }) => {
-  return <div>{children}</div>;
-});
+const SortableContainer = sortableContainer(({ children }) => (
+  <div>{children}</div>
+));
 
-const SortableList = ({ items, onSortEnd }) => {
-  return (
-    <SortableContainer onSortEnd={onSortEnd}>
-      {items.map((value, index) => {
-        value.index = index;
-        return (
-          <SortableItem key={`item-${value.id}`} index={index} value={value} />
-        );
-      })}
-    </SortableContainer>
-  );
-};
+const SortableList = ({ items, onSortEnd }) => (
+  <SortableContainer onSortEnd={onSortEnd}>
+    {items.map((value, index) => {
+      value.index = index;
+      return (
+        <SortableItem key={`item-${value.id}`} index={index} value={value} />
+      );
+    })}
+  </SortableContainer>
+);
 
 export default SortableList;

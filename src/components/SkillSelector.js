@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     height: 40,
     borderRadius: 20,
     background: "rgb(240, 242, 245)",
-    [`& fieldset`]: {
+    "& fieldset": {
       borderRadius: 20,
     },
   },
