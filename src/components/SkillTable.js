@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Add from "@material-ui/icons/Add";
-import Remove from "@material-ui/icons/Remove";
+import Done from "@material-ui/icons/Done";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Chip from "@material-ui/core/Chip";
@@ -8,6 +7,7 @@ import FormatPaint from "@material-ui/icons/FormatPaint";
 import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
 import ColorPicker from "./ColorPicker";
+import SkillRow from "./SkillRow";
 
 const useStyles = makeStyles({
   textInput: {
@@ -102,37 +102,12 @@ const SkillTable = ({
               <FormatPaint />
             </IconButton>
             <IconButton type="submit" color="primary">
-              <Add />
+              <Done />
             </IconButton>
           </form>
         </Surface>
         {skills.map((skill) => (
-          <Surface>
-            <div style={{ display: "flex" }}>
-              <div
-                key={skill.id}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  letterSpacing: 0.5,
-                  flexGrow: 1,
-                }}
-              >
-                <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
-                <Chip
-                  style={{
-                    background: skill.color.background,
-                    color: skill.color.text,
-                  }}
-                  label={skill.abbreviation}
-                />
-              </div>
-              <IconButton onClick={removeSkill(skill.id)} color="secondary">
-                <Remove />
-              </IconButton>
-            </div>
-          </Surface>
+          <SkillRow removeSkill={removeSkill} skill={skill} key={skill.id} />
         ))}
       </div>
     </div>

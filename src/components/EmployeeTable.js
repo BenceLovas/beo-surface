@@ -1,5 +1,5 @@
 import React from "react";
-import Add from "@material-ui/icons/Add";
+import Done from "@material-ui/icons/Done";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import Chip from "@material-ui/core/Chip";
@@ -98,8 +98,12 @@ const EmployeeTable = ({
               skills={skills}
               onSortEnd={onSortEnd}
             />
-            <IconButton type="submit" color="primary">
-              <Add />
+            <IconButton
+              type="submit"
+              color="primary"
+              style={{ alignSelf: "flex-start" }}
+            >
+              <Done />
             </IconButton>
           </form>
         </Surface>
