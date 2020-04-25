@@ -9,6 +9,7 @@ const SortableItem = sortableElement(({ value }) => (
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        cursor: "grab",
       }}
     >
       <div style={{ borderRight: "1px solid #bbb", padding: "0px 16px" }}>

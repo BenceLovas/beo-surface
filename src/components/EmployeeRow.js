@@ -36,10 +36,16 @@ const EmployeeRow = ({
   return (
     <Surface>
       <div key={employee.id} className={classes.grid}>
-        <div style={{ wordBreak: "break-word", flexGrow: 1 }}>
+        <div
+          style={{ wordBreak: "break-word", flexGrow: 1 }}
+          style={{ alignSelf: "flex-start", padding: "14px 0px" }}
+        >
           {employee.firstName}
         </div>
-        <div style={{ wordBreak: "break-word", flexGrow: 1 }}>
+        <div
+          style={{ wordBreak: "break-word", flexGrow: 1 }}
+          style={{ alignSelf: "flex-start", padding: "14px 0px" }}
+        >
           {employee.lastName}
         </div>
         <SkillSelector
@@ -48,7 +54,11 @@ const EmployeeRow = ({
           skills={skills}
           onSortEnd={onSortEnd(employee.id)}
         />
-        <IconButton onClick={removeEmployee(employee.id)} color="secondary">
+        <IconButton
+          onClick={removeEmployee(employee.id)}
+          color="secondary"
+          style={{ alignSelf: "flex-start" }}
+        >
           <Remove />
         </IconButton>
       </div>

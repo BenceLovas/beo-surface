@@ -1,27 +1,6 @@
 ## TODOS
 
-- align skill chip in skill table to align with input field
-
-- cast abbreviation to uppercase
-- limit abbreviation to 3 chars
-- draggable skill item in skill list - text should not be selected when dragged
-- grab icon when hover over skill
-- hold icon while dragging
-
-- when grabbin a skill in emp's skill column the order is messed up
-
-- Show skills like chips (Add abbr filed for skills)
-- show skills as badges in table view - decide how it should behave when skill edition is active (first guess is to make it dissapear)
-
-* make emp's skill selector darker background, round corders, size = small,
-* show 'Select Skills' text on first open
-
-- employee input row behaves differently on toggle (Collapse show) - button scales up, input stays (this is good btw)
-- add error state if no skill selected for user
-
-- create custom scrollbar
-
-- remove icons could be red or secondary color
+- when grabbin a skill in emp's skill column the order is messed up (?)
 
 - on delete (employee or skill) the item should shrink and fade out while the other elements are closing together
 - try displaying counters as if they were in a cutout (negative box shadow)

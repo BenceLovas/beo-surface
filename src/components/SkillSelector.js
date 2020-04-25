@@ -104,7 +104,7 @@ const SkillSelector = ({
             ))}
           </Select>
         </FormControl>
-        <div>RANKING</div>
+        {skillsSelected.length > 0 && <div>RANKING</div>}
         <SortableList items={skillsSelected} onSortEnd={onSortEnd} />
       </Collapse>
     </div>
