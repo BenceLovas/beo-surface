@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import arrayMove from "array-move";
 import SkillTable from "./components/SkillTable";
@@ -26,7 +26,6 @@ const colors = [
     text: "#fff",
   },
 ];
-const defaultColor = "#F48D13";
 
 function App() {
   const [skills, setSkills] = useState([
@@ -70,7 +69,24 @@ function App() {
 
   const [selectedSkills, setSelectedSkills] = useState([]);
 
-  const [selectedColor, setSelectedColor] = useState(defaultColor);
+  const [selectedColors, setSelectedColors] = useState(
+    skills.map((skill) => skill.color.background)
+  );
+  const [selectedColor, setSelectedColor] = useState(
+    colors.filter((color) => !selectedColors.includes(color.background))[0]
+      .background
+  );
+
+  useEffect(() => {
+    setSelectedColor(
+      colors.filter((color) => !selectedColors.includes(color.background))[0]
+        .background
+    );
+  }, [selectedColors]);
+
+  useEffect(() => {
+    setSelectedColors(skills.map((skill) => skill.color.background));
+  }, [skills]);
 
   const addSkill = (event) => {
     event.preventDefault();
@@ -78,6 +94,7 @@ function App() {
       setNewSkillNameError(true);
       return;
     }
+
     setSkills([
       {
         name: newSkillName.trim(),
@@ -87,13 +104,20 @@ function App() {
       },
       ...skills,
     ]);
-    setSelectedColor(defaultColor);
     setNewSkillName("");
     setNewSkillAbbreviation("");
   };
 
   const removeSkill = (id) => () => {
     setSkills(skills.filter((skill) => skill.id !== id));
+    setEmployees(
+      employees.map((employee) => {
+        return {
+          ...employee,
+          skills: employee.skills.filter((skill) => skill.id !== id),
+        };
+      })
+    );
   };
 
   const updateSkillAbbreviation = (event) => {
@@ -121,7 +145,7 @@ function App() {
     setNewFirstName("");
     setNewLastName("");
     setSelectedSkills([]);
-    // set focus for first name
+    // TODO: set focus for first name
   };
 
   const removeEmployee = (id) => () => {
@@ -193,6 +217,7 @@ function App() {
         newSkillName={newSkillName}
         updateSkillNameChange={updateSkillNameChange}
         newSkillNameError={newSkillNameError}
+        selectedColors={selectedColors}
       />
       <EmployeeTable
         sortEmployeeSkills={sortEmployeeSkills}

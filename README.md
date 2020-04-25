@@ -1,16 +1,12 @@
-## TODOS
+# TODO
 
-- when grabbin a skill in emp's skill column the order is messed up (?)
+- fix color picker (currently it only works on every second add)
+  - AC
+    - only not selected color are in the list
+    - on add remove color and pick the first one
+    - on remove add color and pick the first one
 
-- on delete (employee or skill) the item should shrink and fade out while the other elements are closing together
-- try displaying counters as if they were in a cutout (negative box shadow)
-
-- recalculate skill order on skill removal - both from the use and from global
-- remove skill from user on skill removal
-
-- glow effect on rank refresh after dnd
-
-- when opening employee list item to add skills - '-' and '+' and the space below it should not grow
+# Features
 
 - ability to open and close SKILLS and EMPLOYEES table
   - on close:
@@ -23,46 +19,21 @@
     - items appear in order (top to bottom) with small delay
 - on skill list - show how many employees know that skill
 
-- what if a skill is removed - it should be removed from the employees as well
-- should display error message if one user doesn't have a skill
-- primary skills and secondary skills - do I really need this?
-- add abbriviation to skills - and display those as chips on employee list
-
-  - rank employees added to a skill - who is the most relevant in each skill (like rank high new receptionists to night shift rec skill to increase the change that they will be the replacement)
-  - I guess if employee's skill ranking is weighted the most then the skill's employee rank is just switching people in the same shift if necessary after the schedule has been created we are gucci
-  - First only have skill ranking for employees and we'll see
-
-- skill multiple selector - corner not rounded after selected state
-
-- pick colors for skills
-
-  - 10 predefined colors
-  - one tint icon
-    - on click
-      - input fields shrinks
-      - small color 'balls' appear from the icon - slide out from beneath it
-  - add color indicators where I display skills - if possible
-  - don't show colors that have been picked
-
-- new items shoul appear nicly
-- should skill add to emp panel close after emp creation?
-- whole skill selector should be a button - pointer on hover
-
-- skill list for emp. floats up - drops wide shadow
-
-- try using 'glass' surfaces
 - dark mode
 
 - edit emps
 - edit skills
 
-- display somehow when a skill is removed from a employee by deleting the skill itself
-- take printscreens of versions and upload it to the repo - sometimes it happens that I overdo something when I watch the UI too much
-- red plus sign when no skill added to employee - then chevron counter and if anything else fits than that
+# UX improvements
 
-- input field error messages show up above it - like it is a paper as well just coming out from below the input
-- custom ordering for employees
-- custom ordering for skills (?)
+- skill multiple selector - corner not rounded after selected state
+- don't show colors that have been picked (color picker)
+- new items shoul appear nicly
+- should skill add to emp panel close after emp creation?
+
+# Bugs
+
+- when grabbin a skill in emp's skill column the order is messed up (?)
 
 # Backlog ideas
 

@@ -51,7 +51,9 @@ const SkillSelector = ({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          cursor: "pointer",
         }}
+        onClick={() => setIsOpen(!isOpen)}
       >
         <div>
           <Chip label={skillsSelected.length} />

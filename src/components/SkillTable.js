@@ -32,6 +32,7 @@ const SkillTable = ({
   colors,
   newSkillAbbreviation,
   updateSkillAbbreviation,
+  selectedColors,
 }) => {
   const classes = useStyles();
   const [isOpen, setOpen] = useState(false);
@@ -96,6 +97,7 @@ const SkillTable = ({
               selectedValue={selectedColor}
               setSelectedValue={setSelectedColor}
               colors={colors}
+              selectedColors={selectedColors}
             />
 
             <IconButton onClick={toggleColorPicker}>
