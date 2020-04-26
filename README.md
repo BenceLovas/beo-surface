@@ -1,10 +1,6 @@
 # TODO
 
-- fix color picker (currently it only works on every second add)
-  - AC
-    - only not selected color are in the list
-    - on add remove color and pick the first one
-    - on remove add color and pick the first one
+- dark mode
 
 # Features
 
@@ -19,12 +15,12 @@
     - items appear in order (top to bottom) with small delay
 - on skill list - show how many employees know that skill
 
-- dark mode
-
-- edit emps
-- edit skills
+* edit emps
+* edit skills
 
 # UX improvements
+
+- color picker appear nicely
 
 - skill multiple selector - corner not rounded after selected state
 - don't show colors that have been picked (color picker)
@@ -33,6 +29,7 @@
 
 # Bugs
 
+- code collapses if there is no more color left
 - when grabbin a skill in emp's skill column the order is messed up (?)
 
 # Backlog ideas

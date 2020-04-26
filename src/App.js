@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import arrayMove from "array-move";
 import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
+import Divider from "./components/shared/Divider";
 
 const colors = [
   {
@@ -219,6 +220,7 @@ function App() {
         newSkillNameError={newSkillNameError}
         selectedColors={selectedColors}
       />
+      <Divider />
       <EmployeeTable
         sortEmployeeSkills={sortEmployeeSkills}
         selectedSkills={selectedSkills}
@@ -235,6 +237,7 @@ function App() {
         updateLastNameChange={updateLastNameChange}
         newLastNameError={newLastNameError}
       />
+      <Divider />
     </div>
   );
 }

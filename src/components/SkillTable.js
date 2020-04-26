@@ -43,7 +43,15 @@ const SkillTable = ({
 
   return (
     <div style={{ padding: 16, border: "1px solid #eee" }}>
-      <div style={{ fontSize: 20, padding: "15px 0", letterSpacing: 2 }}>
+      <div
+        style={{
+          fontSize: 20,
+          letterSpacing: 1,
+          padding: "0 20px",
+          fontWeight: 700,
+          marginBottom: 30,
+        }}
+      >
         SKILLS <Chip label={skills.length} />
       </div>
       <div>
@@ -73,7 +81,7 @@ const SkillTable = ({
               placeholder="Enter a new skill"
               style={{
                 flexGrow: 2,
-                marginTop: 4,
+                margin: "4px 5px",
               }}
               variant="outlined"
               className={classes.textInput}
@@ -86,7 +94,7 @@ const SkillTable = ({
               placeholder="Enter abbreviation"
               style={{
                 flexGrow: 1,
-                marginTop: 4,
+                margin: "4px 5px",
               }}
               variant="outlined"
               className={classes.textInput}

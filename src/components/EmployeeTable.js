@@ -16,7 +16,8 @@ const useStyles = makeStyles({
     gridTemplateColumns: "1fr 1fr 1fr 48px",
   },
   textInput: {
-    marginTop: 4,
+    margin: "4px 10px 4px 0",
+    boxSizing: "border-box",
     height: 40,
     borderRadius: 20,
     background: "rgb(240, 242, 245)",
@@ -52,7 +53,15 @@ const EmployeeTable = ({
     <div
       style={{ padding: 16, border: "1px solid #eee", boxSizing: "border-box" }}
     >
-      <div style={{ fontSize: 20, padding: "15px 0", letterSpacing: 2 }}>
+      <div
+        style={{
+          fontSize: 20,
+          letterSpacing: 1,
+          padding: "0 20px",
+          fontWeight: 700,
+          marginBottom: 30,
+        }}
+      >
         EMPLOYEES <Chip label={employees.length} />
       </div>
       <div>
