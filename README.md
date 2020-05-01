@@ -1,9 +1,10 @@
 # TODO
 
+- on calendar click - add color to selection
+  - on save 'grey' out the selection but show it there
+  - how to edit those?
 - on form submit the form itself turns into the row and a new form spawns on the top of the list
-- create own FAB - maybe a bit 3D design - like a real button with light shadows - on click gets pushed - on hover icon lights up
 - save theme in local storage
-- add theme toggle
 - date selector
   - click first date - click last date
   - highlight current date
@@ -41,6 +42,7 @@
 
 # UX improvements
 
+- animate outline when error state happens
 - create tutorial that walks you through the page
 - color picker appear nicely
 - should the skill/emp addition form visible all the time?

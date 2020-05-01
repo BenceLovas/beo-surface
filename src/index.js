@@ -36,7 +36,7 @@ const darkTheme = createMuiTheme({
   textColor: "rgba(255, 255, 255, 0.7)",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-  main: "rgba(255, 255, 255, 0.7)",
+  main: "rgba(255, 255, 255, 0.4)",
   error: "rgb(245, 0, 87)",
   errorLight: "rgba(245, 0, 87, .3)",
   inputBorderColor: "#303030",

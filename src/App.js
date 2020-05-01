@@ -6,11 +6,12 @@ import EmployeeTable from "./components/EmployeeTable";
 import Divider from "./components/shared/Divider";
 import { makeStyles } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
+import DateRangeSelector from "./components/DateRangeSelector";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     background: theme.background,
     color: theme.textColor,
-    height: "100%",
+    minHeight: "100vh",
   },
 }));
 
@@ -261,6 +262,7 @@ function App({ theme, toggleTheme }) {
         newLastNameError={newLastNameError}
       />
       <Divider />
+      <DateRangeSelector />
     </div>
   );
 }

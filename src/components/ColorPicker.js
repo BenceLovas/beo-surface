@@ -1,5 +1,5 @@
 import React from "react";
-import Slide from "@material-ui/core/Slide";
+import Fade from "@material-ui/core/Fade";
 import RadioButton from "./RadioButton";
 
 const ColorPicker = ({
@@ -9,7 +9,7 @@ const ColorPicker = ({
   setSelectedValue,
   selectedColors,
 }) => (
-  <Slide direction="left" in={isOpen} mountOnEnter unmountOnExit>
+  <Fade direction="left" in={isOpen} mountOnEnter unmountOnExit>
     <div style={{ display: "flex" }}>
       {colors
         .filter((color) => {
@@ -25,7 +25,7 @@ const ColorPicker = ({
           />
         ))}
     </div>
-  </Slide>
+  </Fade>
 );
 
 export default ColorPicker;

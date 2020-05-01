@@ -59,7 +59,6 @@ const SkillSelector = ({
         <IconButton
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          color="primary"
           style={{
             transition: "transform .3s ease-in-out",
             transform: isOpen ? "rotate(180deg)" : "",

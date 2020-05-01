@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
       padding: (props) => (props.error ? null : "9px 13px"),
     },
     boxShadow: "inset 1px 1px 3px rgba(0,0,0,.2)",
+    "&::placeholder": {
+      fontSize: 16,
+    },
   },
 }));
 const InputText = ({ value, onChange, error, placeholder }) => {
