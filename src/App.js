@@ -77,6 +77,10 @@ function App() {
   const [newLastName, setNewLastName] = useState("");
   const [newLastNameError, setNewLastNameError] = useState(false);
 
+  const [newSkillAbbreviationError, setNewSkillAbbreviationError] = useState(
+    false
+  );
+
   const [selectedSkills, setSelectedSkills] = useState([]);
 
   const [selectedColors, setSelectedColors] = useState(
@@ -102,6 +106,10 @@ function App() {
     event.preventDefault();
     if (newSkillName.trim() === "") {
       setNewSkillNameError(true);
+    }
+
+    if (newSkillAbbreviation.trim() === "") {
+      setNewSkillAbbreviationError(true);
       return;
     }
 
@@ -131,7 +139,11 @@ function App() {
   };
 
   const updateSkillAbbreviation = (event) => {
-    setNewSkillAbbreviation(event.target.value);
+    const skillAbbreviationName = event.target.value;
+    if (newSkillAbbreviationError && newSkillAbbreviation.trim() !== "") {
+      setNewSkillAbbreviationError(false);
+    }
+    setNewSkillAbbreviation(skillAbbreviationName);
   };
 
   const addEmployee = (event) => {
@@ -228,6 +240,7 @@ function App() {
         updateSkillNameChange={updateSkillNameChange}
         newSkillNameError={newSkillNameError}
         selectedColors={selectedColors}
+        newSkillAbbreviationError={newSkillAbbreviationError}
       />
       <Divider />
       <EmployeeTable

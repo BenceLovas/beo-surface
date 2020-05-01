@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Surface from "./shared/Surface";
 import ColorPicker from "./ColorPicker";
 import SkillRow from "./SkillRow";
+import InputText from "./shared/InputText";
 
 const useStyles = makeStyles({
   textInput: {
@@ -31,6 +32,7 @@ const SkillTable = ({
   setSelectedColor,
   colors,
   newSkillAbbreviation,
+  newSkillAbbreviationError,
   updateSkillAbbreviation,
   selectedColors,
 }) => {
@@ -57,7 +59,6 @@ const SkillTable = ({
       <div>
         <div
           style={{
-            borderBottom: "1px solid rgb(200, 201, 202)",
             padding: "5px 0 5px 20px",
             letterSpacing: 0.5,
           }}
@@ -73,32 +74,17 @@ const SkillTable = ({
               alignItesm: "center",
             }}
           >
-            <TextField
-              type="text"
+            <InputText
               value={newSkillName}
               onChange={updateSkillNameChange}
               error={newSkillNameError}
               placeholder="Enter a new skill"
-              style={{
-                flexGrow: 2,
-                margin: "4px 5px",
-              }}
-              variant="outlined"
-              className={classes.textInput}
-              size="small"
             />
-            <TextField
-              type="text"
+            <InputText
               value={newSkillAbbreviation}
               onChange={updateSkillAbbreviation}
+              error={newSkillAbbreviationError}
               placeholder="Enter abbreviation"
-              style={{
-                flexGrow: 1,
-                margin: "4px 5px",
-              }}
-              variant="outlined"
-              className={classes.textInput}
-              size="small"
             />
             <ColorPicker
               isOpen={isOpen}

@@ -23,6 +23,9 @@ const darkTheme = createMuiTheme({
   textColor: "#6F6F6F",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
+  main: "#3f51b5",
+  error: "#f50057",
+  inputBorderColor: "#303030",
 });
 
 ReactDOM.render(

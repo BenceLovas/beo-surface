@@ -1,5 +1,6 @@
 # TODO
 
+- create own implementation of text input field beacuse of dark theme
 - follow patter to make things that are clickable round, and what is not should be a rectangle (or maybe a something with a small border radius)
 - color picker - show/hide animation
 - divide acton buttons from data rows - make them more button like

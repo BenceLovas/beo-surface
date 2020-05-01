@@ -1,12 +1,11 @@
 import React from "react";
 import Done from "@material-ui/icons/Done";
-import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
-import Chip from "@material-ui/core/Chip";
 import { makeStyles } from "@material-ui/core/styles";
 import arrayMove from "array-move";
 import EmployeeRow from "./EmployeeRow";
 import SkillSelector from "./SkillSelector";
+import InputText from "./shared/InputText";
 
 import Surface from "./shared/Surface";
 
@@ -66,7 +65,6 @@ const EmployeeTable = ({
         <div
           className={classes.grid}
           style={{
-            borderBottom: "1px solid rgb(200, 201, 202)",
             padding: "5px 20px",
             letterSpacing: 0.5,
           }}
@@ -79,25 +77,17 @@ const EmployeeTable = ({
 
         <Surface>
           <form onSubmit={addEmployee} className={classes.grid}>
-            <TextField
-              className={classes.textInput}
-              type="text"
+            <InputText
               value={newFirstName}
               onChange={updateFirstNameChange}
               error={newFirstNameError}
-              placeholder="First Name"
-              variant="outlined"
-              size="small"
+              placeholder="Enter first name"
             />
-            <TextField
-              className={classes.textInput}
-              type="text"
+            <InputText
               value={newLastName}
               onChange={updateLastNameChange}
               error={newLastNameError}
-              placeholder="Last Name"
-              variant="outlined"
-              size="small"
+              placeholder="Enter last name"
             />
             <SkillSelector
               addMultipleSkills={(e) => setSelectedSkills([...e.target.value])}
