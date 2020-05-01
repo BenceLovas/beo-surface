@@ -50,9 +50,7 @@ const EmployeeTable = ({
   };
 
   return (
-    <div
-      style={{ padding: 16, border: "1px solid #eee", boxSizing: "border-box" }}
-    >
+    <div style={{ padding: 16, boxSizing: "border-box" }}>
       <div
         style={{
           fontSize: 20,
@@ -62,7 +60,7 @@ const EmployeeTable = ({
           marginBottom: 30,
         }}
       >
-        EMPLOYEES <Chip label={employees.length} />
+        EMPLOYEES ({employees.length})
       </div>
       <div>
         <div

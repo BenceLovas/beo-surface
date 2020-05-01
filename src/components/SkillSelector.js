@@ -11,6 +11,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import SortableList from "./SortableList";
+import Label from "./shared/Label";
 
 const useStyles = makeStyles({
   textInput: {
@@ -55,18 +56,6 @@ const SkillSelector = ({
         }}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div>
-          <Chip label={skillsSelected.length} />
-          {skillsSelected.map((skill) => (
-            <Chip
-              style={{
-                background: skill.color.background,
-                color: skill.color.text,
-              }}
-              label={skill.abbreviation}
-            />
-          ))}
-        </div>
         <IconButton
           type="button"
           onClick={() => setIsOpen(!isOpen)}
@@ -78,6 +67,15 @@ const SkillSelector = ({
         >
           <ExpandMore />
         </IconButton>
+        <div style={{ display: "flex" }}>
+          {skillsSelected.map((skill) => (
+            <Label
+              text={skill.abbreviation}
+              color={skill.color.text}
+              background={skill.color.background}
+            />
+          ))}
+        </div>
       </div>
       <Collapse in={isOpen}>
         <FormControl

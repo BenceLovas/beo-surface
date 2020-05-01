@@ -42,7 +42,7 @@ const SkillTable = ({
   };
 
   return (
-    <div style={{ padding: 16, border: "1px solid #eee" }}>
+    <div style={{ padding: 16 }}>
       <div
         style={{
           fontSize: 20,
@@ -52,7 +52,7 @@ const SkillTable = ({
           marginBottom: 30,
         }}
       >
-        SKILLS <Chip label={skills.length} />
+        SKILLS ({skills.length})
       </div>
       <div>
         <div

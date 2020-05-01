@@ -4,6 +4,14 @@ import arrayMove from "array-move";
 import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
 import Divider from "./components/shared/Divider";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    background: theme.background,
+    color: theme.textColor,
+  },
+}));
 
 const colors = [
   {
@@ -29,6 +37,7 @@ const colors = [
 ];
 
 function App() {
+  const classes = useStyles();
   const [skills, setSkills] = useState([
     {
       name: "Skill 1",
@@ -205,7 +214,7 @@ function App() {
     );
   };
   return (
-    <div style={{ padding: 10 }}>
+    <div className={classes.wrapper}>
       <SkillTable
         newSkillAbbreviation={newSkillAbbreviation}
         updateSkillAbbreviation={updateSkillAbbreviation}

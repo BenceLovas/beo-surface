@@ -4,6 +4,7 @@ import { Collapse } from "@material-ui/core";
 import Remove from "@material-ui/icons/Remove";
 import IconButton from "@material-ui/core/IconButton";
 import Chip from "@material-ui/core/Chip";
+import Label from "./shared/Label";
 
 const SkillRow = ({ removeSkill, skill }) => {
   const [show, setShow] = useState(true);
@@ -28,12 +29,10 @@ const SkillRow = ({ removeSkill, skill }) => {
             }}
           >
             <div style={{ wordBreak: "break-word" }}>{skill.name}</div>
-            <Chip
-              style={{
-                background: skill.color.background,
-                color: skill.color.text,
-              }}
-              label={skill.abbreviation}
+            <Label
+              text={skill.abbreviation}
+              color={skill.color.text}
+              background={skill.color.background}
             />
           </div>
           <IconButton onClick={onRemove()} color="secondary">

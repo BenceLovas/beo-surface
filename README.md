@@ -1,6 +1,14 @@
 # TODO
 
+- follow patter to make things that are clickable round, and what is not should be a rectangle (or maybe a something with a small border radius)
+- color picker - show/hide animation
+- divide acton buttons from data rows - make them more button like
+- buttons grow and colorize on hover?
+- align data in table to be aligned with input fields
+- add abrreviation column name
 - dark mode
+- no error handling for skil abbr
+- toggle form with a '+' sign and 'x' sign on close next to titles (skills, emps)
 
 # Features
 
@@ -20,7 +28,9 @@
 
 # UX improvements
 
+- create tutorial that walks you through the page
 - color picker appear nicely
+- should the skill/emp addition form visible all the time?
 
 - skill multiple selector - corner not rounded after selected state
 - don't show colors that have been picked (color picker)
@@ -29,6 +39,7 @@
 
 # Bugs
 
+- skill not removed from employee creation form on skill removal
 - code collapses if there is no more color left
 - when grabbin a skill in emp's skill column the order is messed up (?)
 

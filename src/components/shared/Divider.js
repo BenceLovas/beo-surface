@@ -1,17 +1,17 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    margin: 16,
+    height: 3,
+    boxSizing: "border-box",
+    background: theme.divider,
+  },
+}));
 const Divider = () => {
-  return (
-    <div
-      style={{
-        margin: 16,
-        boxShadow: "inset 0px 0px 11px 3px rgba(133,133,133,0.2)",
-        height: 3,
-        boxSizing: "border-box",
-        background: "#ddd",
-      }}
-    ></div>
-  );
+  const classes = useStyles();
+  return <div className={classes.wrapper}></div>;
 };
 
 export default Divider;
