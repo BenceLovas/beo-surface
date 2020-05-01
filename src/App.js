@@ -5,11 +5,12 @@ import SkillTable from "./components/SkillTable";
 import EmployeeTable from "./components/EmployeeTable";
 import Divider from "./components/shared/Divider";
 import { makeStyles } from "@material-ui/core/styles";
-
+import Switch from "@material-ui/core/Switch";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     background: theme.background,
     color: theme.textColor,
+    height: "100%",
   },
 }));
 
@@ -36,7 +37,7 @@ const colors = [
   },
 ];
 
-function App() {
+function App({ theme, toggleTheme }) {
   const classes = useStyles();
   const [skills, setSkills] = useState([
     {
@@ -107,12 +108,11 @@ function App() {
     if (newSkillName.trim() === "") {
       setNewSkillNameError(true);
     }
-
     if (newSkillAbbreviation.trim() === "") {
       setNewSkillAbbreviationError(true);
-      return;
     }
-
+    if (newSkillName.trim() === "" || newSkillAbbreviation.trim() === "")
+      return;
     setSkills([
       {
         name: newSkillName.trim(),
@@ -140,7 +140,7 @@ function App() {
 
   const updateSkillAbbreviation = (event) => {
     const skillAbbreviationName = event.target.value;
-    if (newSkillAbbreviationError && newSkillAbbreviation.trim() !== "") {
+    if (newSkillAbbreviationError && skillAbbreviationName.trim() !== "") {
       setNewSkillAbbreviationError(false);
     }
     setNewSkillAbbreviation(skillAbbreviationName);
@@ -227,6 +227,7 @@ function App() {
   };
   return (
     <div className={classes.wrapper}>
+      <Switch checked={theme === "light"} onChange={toggleTheme} />
       <SkillTable
         newSkillAbbreviation={newSkillAbbreviation}
         updateSkillAbbreviation={updateSkillAbbreviation}

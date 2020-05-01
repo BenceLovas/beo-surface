@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
@@ -14,33 +14,65 @@ const lightTheme = createMuiTheme({
   textColor: "#1c1e21",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-  main: "#3f51b5",
+  main: "rgba(0,0,0,.4)",
   error: "rgb(240, 7, 7)",
   errorLight: "rgba(240, 7, 7, .3)",
   inputBorderColor: "rgb(220, 220, 220)",
+  actionButton: {
+    backgroundImage: "linear-gradient(top, #f7f7f7, #e7e7e7)",
+    color: "#a7a7a7",
+    boxShadow: "0px 3px 8px #aaa, inset 0px 2px 3px #fff",
+    hover: {
+      color: "#555",
+      background: "#f5f5f5",
+    },
+  },
 });
 
 const darkTheme = createMuiTheme({
-  background: "#262626",
+  background: "#303030",
   backgroundLight: "#414141",
   backgroundDark: "",
-  textColor: "#6F6F6F",
+  textColor: "rgba(255, 255, 255, 0.7)",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-  main: green,
+  main: "rgba(255, 255, 255, 0.7)",
   error: "rgb(245, 0, 87)",
   errorLight: "rgba(245, 0, 87, .3)",
   inputBorderColor: "#303030",
   palette: {
-    primary: green,
+    primary: {
+      main: "rgba(255, 255, 255, 0.7)",
+    },
+  },
+  actionButton: {
+    backgroundImage: "linear-gradient(top, #414141, #303030)",
+    color: "#a7a7a7",
+    boxShadow: "0px 3px 8px #141414, inset 0px 2px 3px #494949",
+    hover: {
+      color: "rgba(255, 255, 255, 0.7)",
+      background: "#414141",
+    },
   },
 });
 
+const Theme = () => {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <App theme={theme} toggleTheme={toggleTheme} />
+    </ThemeProvider>
+  );
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={lightTheme}>
-      <App />
-    </ThemeProvider>
+    <Theme />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -10,6 +10,7 @@ import ColorPicker from "./ColorPicker";
 import SkillRow from "./SkillRow";
 import InputText from "./shared/InputText";
 import Fab from "@material-ui/core/Fab";
+import ActionButtonCircle from "./shared/ActionButtonCircle";
 const useStyles = makeStyles({
   textInput: {
     height: 40,
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 48px 48px",
+    alignItems: "center",
   },
 });
 
@@ -97,9 +99,7 @@ const SkillTable = ({
             <IconButton onClick={toggleColorPicker}>
               <FormatPaint />
             </IconButton>
-            <Fab type="submit" size="small">
-              <Done />
-            </Fab>
+            <ActionButtonCircle icon={<Done />} />
           </form>
         </Surface>
         {skills.map((skill) => (

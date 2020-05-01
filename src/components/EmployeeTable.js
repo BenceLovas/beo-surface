@@ -6,6 +6,7 @@ import arrayMove from "array-move";
 import EmployeeRow from "./EmployeeRow";
 import SkillSelector from "./SkillSelector";
 import InputText from "./shared/InputText";
+import ActionButtonCircle from "./shared/ActionButtonCircle";
 
 import Surface from "./shared/Surface";
 
@@ -13,6 +14,7 @@ const useStyles = makeStyles({
   grid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr 48px",
+    alignItems: "center",
   },
   textInput: {
     margin: "4px 10px 4px 0",
@@ -97,13 +99,7 @@ const EmployeeTable = ({
               skills={skills}
               onSortEnd={onSortEnd}
             />
-            <IconButton
-              type="submit"
-              color="primary"
-              style={{ alignSelf: "flex-start" }}
-            >
-              <Done />
-            </IconButton>
+            <ActionButtonCircle icon={<Done />} />
           </form>
         </Surface>
 

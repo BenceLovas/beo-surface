@@ -1,5 +1,9 @@
 # TODO
 
+- on form submit the form itself turns into the row and a new form spawns on the top of the list
+- create own FAB - maybe a bit 3D design - like a real button with light shadows - on click gets pushed - on hover icon lights up
+- save theme in local storage
+- add theme toggle
 - date selector
   - click first date - click last date
   - highlight current date
