@@ -15,19 +15,19 @@ const useStyles = makeStyles((theme) => ({
 
 const colors = [
   {
-    background: "#F27312",
+    background: "#c79d3a",
     text: "#1c1e21",
   },
   {
-    background: "#F48D13",
+    background: "#FF4B68",
     text: "#1c1e21",
   },
   {
-    background: "#F0C213",
+    background: "#118DF0",
     text: "#1c1e21",
   },
   {
-    background: "#439975",
+    background: "#004182",
     text: "#fff",
   },
   {

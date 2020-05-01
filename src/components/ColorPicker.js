@@ -10,7 +10,7 @@ const ColorPicker = ({
   selectedColors,
 }) => (
   <Slide direction="left" in={isOpen} mountOnEnter unmountOnExit>
-    <div>
+    <div style={{ display: "flex" }}>
       {colors
         .filter((color) => {
           return !selectedColors.includes(color.background);

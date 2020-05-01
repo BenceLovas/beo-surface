@@ -18,10 +18,13 @@ const useStyles = makeStyles((theme) => ({
       borderColor: (props) => (props.error ? theme.error : theme.main),
     },
     "&:focus": {
-      borderColor: (props) => (props.error ? theme.error : theme.main),
+      borderColor: (props) => (props.error ? theme.errorLight : theme.main),
     },
-    "&:hover": {
-      borderColor: (props) => (props.error ? theme.error : theme.main),
+    "&:hover:not(:focus) ": {
+      borderColor: (props) =>
+        props.error ? theme.errorLight : theme.inputBorderColor,
+      borderWidth: (props) => (props.error ? 2 : 3),
+      padding: (props) => (props.error ? null : "9px 13px"),
     },
   },
 }));

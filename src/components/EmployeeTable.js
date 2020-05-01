@@ -56,7 +56,7 @@ const EmployeeTable = ({
           letterSpacing: 1,
           padding: "0 20px",
           fontWeight: 700,
-          marginBottom: 30,
+          marginBottom: 16,
         }}
       >
         EMPLOYEES ({employees.length})
@@ -67,6 +67,8 @@ const EmployeeTable = ({
           style={{
             padding: "5px 20px",
             letterSpacing: 0.5,
+            height: 32,
+            alignItems: "flex-end",
           }}
         >
           <div style={{ wordBreak: "break-word" }}>First Name</div>

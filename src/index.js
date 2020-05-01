@@ -14,6 +14,10 @@ const lightTheme = createMuiTheme({
   textColor: "#1c1e21",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
+  main: "#3f51b5",
+  error: "rgb(240, 7, 7)",
+  errorLight: "rgba(240, 7, 7, .3)",
+  inputBorderColor: "rgb(220, 220, 220)",
 });
 
 const darkTheme = createMuiTheme({
@@ -23,14 +27,18 @@ const darkTheme = createMuiTheme({
   textColor: "#6F6F6F",
   divider: "rgba(133,133,133,0.2)",
   shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
-  main: "#3f51b5",
-  error: "#f50057",
+  main: green,
+  error: "rgb(245, 0, 87)",
+  errorLight: "rgba(245, 0, 87, .3)",
   inputBorderColor: "#303030",
+  palette: {
+    primary: green,
+  },
 });
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,

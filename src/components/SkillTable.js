@@ -9,7 +9,7 @@ import Surface from "./shared/Surface";
 import ColorPicker from "./ColorPicker";
 import SkillRow from "./SkillRow";
 import InputText from "./shared/InputText";
-
+import Fab from "@material-ui/core/Fab";
 const useStyles = makeStyles({
   textInput: {
     height: 40,
@@ -18,6 +18,10 @@ const useStyles = makeStyles({
     "& fieldset": {
       borderRadius: 20,
     },
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 48px 48px",
   },
 });
 
@@ -51,7 +55,7 @@ const SkillTable = ({
           letterSpacing: 1,
           padding: "0 20px",
           fontWeight: 700,
-          marginBottom: 30,
+          marginBottom: 16,
         }}
       >
         SKILLS ({skills.length})
@@ -61,19 +65,23 @@ const SkillTable = ({
           style={{
             padding: "5px 0 5px 20px",
             letterSpacing: 0.5,
+            display: "flex",
+            justifyContent: "space-between",
+            height: 32,
+            alignItems: "flex-end",
           }}
         >
-          Name
+          <div>Name</div>
+          <ColorPicker
+            isOpen={isOpen}
+            selectedValue={selectedColor}
+            setSelectedValue={setSelectedColor}
+            colors={colors}
+            selectedColors={selectedColors}
+          />
         </div>
         <Surface>
-          <form
-            onSubmit={addSkill}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItesm: "center",
-            }}
-          >
+          <form onSubmit={addSkill} className={classes.grid}>
             <InputText
               value={newSkillName}
               onChange={updateSkillNameChange}
@@ -86,20 +94,12 @@ const SkillTable = ({
               error={newSkillAbbreviationError}
               placeholder="Enter abbreviation"
             />
-            <ColorPicker
-              isOpen={isOpen}
-              selectedValue={selectedColor}
-              setSelectedValue={setSelectedColor}
-              colors={colors}
-              selectedColors={selectedColors}
-            />
-
             <IconButton onClick={toggleColorPicker}>
               <FormatPaint />
             </IconButton>
-            <IconButton type="submit" color="primary">
+            <Fab type="submit" size="small">
               <Done />
-            </IconButton>
+            </Fab>
           </form>
         </Surface>
         {skills.map((skill) => (

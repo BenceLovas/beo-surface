@@ -1,15 +1,23 @@
 # TODO
 
-- create own implementation of text input field beacuse of dark theme
-- follow patter to make things that are clickable round, and what is not should be a rectangle (or maybe a something with a small border radius)
-- color picker - show/hide animation
-- divide acton buttons from data rows - make them more button like
-- buttons grow and colorize on hover?
-- align data in table to be aligned with input fields
-- add abrreviation column name
-- dark mode
-- no error handling for skil abbr
-- toggle form with a '+' sign and 'x' sign on close next to titles (skills, emps)
+- date selector
+  - click first date - click last date
+  - highlight current date
+  - show current month
+  - can use go backwards in time? (yes?)
+  - hover effect
+  - bold numbers for start and end date
+  - month change option
+
+* follow patter to make things that are clickable round, and what is not should be a rectangle (or maybe a something with a small border radius)
+* color picker - show/hide animation
+* divide acton buttons from data rows - make them more button like
+* buttons grow and colorize on hover?
+* align data in table to be aligned with input fields
+* add abrreviation column name
+* dark mode
+* no error handling for skil abbr
+* toggle form with a '+' sign and 'x' sign on close next to titles (skills, emps)
 
 # Features
 
