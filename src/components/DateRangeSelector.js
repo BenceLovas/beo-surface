@@ -4,26 +4,44 @@ import ActionButtonCircle from "./shared/ActionButtonCircle";
 import Surface from "./shared/Surface";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import { makeStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
 
+const useStyles = makeStyles((theme) => ({
+  selected: {
+    background: "rgba(0,0,0,.15)",
+  },
+  borderRoundLeft: {
+    borderTopLeftRadius: 26,
+    borderBottomLeftRadius: 26,
+  },
+  borderRoundRight: {
+    borderTopRightRadius: 26,
+    borderBottomRightRadius: 26,
+  },
+  lightText: {
+    fontSize: 16,
+    justifySelf: "center",
+    color: theme.lightText,
+  },
+}));
 const dayTitles = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 const TOTAL_DAYS = 7 * 6;
 
 const DateRangeSelector = () => {
+  const classes = useStyles();
   const [date, setDate] = useState(moment());
   const [selectorState, setSelectorState] = useState("clear");
   const [range, setRange] = useState([null, null]);
 
   const handleClick = (d) => (e) => {
     e.preventDefault();
-    console.log("hello");
     if (selectorState === "clear") {
       setRange([d, null]);
       setSelectorState("firstSelected");
-      console.log("h1");
     } else if (selectorState === "firstSelected") {
       setRange([range[0], d]);
-      setSelectorState("rangeSelected");
-      console.log("h2");
+      setSelectorState("clear");
     }
   };
 
@@ -97,17 +115,27 @@ const DateRangeSelector = () => {
             ))}
             {dateArray.map((d) => (
               <div
+                className={classNames({
+                  [classes.selected]:
+                    (range[0] ? d.isSame(range[0]) : false) ||
+                    (range[0] &&
+                      range[1] &&
+                      d.isBetween(range[0], range[1], null, "[]")),
+                  [classes.borderRoundLeft]: range[0]
+                    ? d.isSame(range[0])
+                    : false,
+                  [classes.borderRoundRight]: range[1]
+                    ? d.isSame(range[1])
+                    : range[0]
+                    ? d.isSame(range[0])
+                    : false,
+                })}
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "5px 0",
-                  padding: 4,
-                  background:
-                    selectorState === "rangeSelected" &&
-                    d.isBetween(range[0], range[1], null, "[]")
-                      ? "rgba(0,0,0,.15)"
-                      : "",
+                  margin: "0px 0",
+                  padding: "6px 4px",
                 }}
               >
                 {d.isSame(date, "month") ? (
@@ -125,15 +153,7 @@ const DateRangeSelector = () => {
                     onClick={handleClick(d)}
                   />
                 ) : (
-                  <div
-                    style={{
-                      fontSize: 16,
-                      justifySelf: "center",
-                      color: "rgba(0, 0, 0, 0.4)",
-                    }}
-                  >
-                    {d.format("D")}
-                  </div>
+                  <div className={classes.lightText}>{d.format("D")}</div>
                 )}
               </div>
             ))}

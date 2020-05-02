@@ -1,6 +1,7 @@
 # TODO
 
 - create own multi select component
+- round highlight on calendar select
 
 - on calendar click - add color to selection
   - on save 'grey' out the selection but show it there
@@ -65,6 +66,7 @@
 - skill not removed from employee creation form on skill removal
 - code collapses if there is no more color left
 - when grabbin a skill in emp's skill column the order is messed up (?)
+- selecting backwards in time on calendar
 
 # Backlog ideas
 
