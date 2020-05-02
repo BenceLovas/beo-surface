@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const ActionButtonCircle = ({ icon }) => {
+const ActionButtonCircle = ({ icon, onClick }) => {
   const classes = useStyles();
   return (
-    <button type="submit" className={classes.inner}>
+    <button type="submit" onClick={onClick} className={classes.inner}>
       {icon}
     </button>
   );

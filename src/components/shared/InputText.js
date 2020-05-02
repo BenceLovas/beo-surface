@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   textInput: {
-    height: 44,
+    fontSize: 16,
+    height: 40,
     margin: "0px 5px",
     borderRadius: 20,
     background: theme.background,
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       borderWidth: (props) => (props.error ? 2 : 3),
       padding: (props) => (props.error ? null : "9px 13px"),
     },
-    boxShadow: "inset 1px 1px 3px rgba(0,0,0,.2)",
+    boxShadow: theme.input.insetShadow,
     "&::placeholder": {
       fontSize: 16,
     },

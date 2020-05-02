@@ -27,6 +27,9 @@ const lightTheme = createMuiTheme({
       background: "#f5f5f5",
     },
   },
+  input: {
+    insetShadow: "inset 0px 3px 2px rgba(0,0,0,.1)",
+  },
 });
 
 const darkTheme = createMuiTheme({
@@ -35,7 +38,7 @@ const darkTheme = createMuiTheme({
   backgroundDark: "",
   textColor: "rgba(255, 255, 255, 0.7)",
   divider: "rgba(133,133,133,0.2)",
-  shadow: "rgba(0, 0, 0, 0.2) 0px 1px 2px 0px",
+  shadow: "rgba(0, 0, 0, 0.4) 0px 1px 2px 0px",
   main: "rgba(255, 255, 255, 0.4)",
   error: "rgb(245, 0, 87)",
   errorLight: "rgba(245, 0, 87, .3)",
@@ -53,6 +56,9 @@ const darkTheme = createMuiTheme({
       color: "rgba(255, 255, 255, 0.7)",
       background: "#414141",
     },
+  },
+  input: {
+    insetShadow: "inset 0px 3px 2px rgba(0,0,0,.2)",
   },
 });
 

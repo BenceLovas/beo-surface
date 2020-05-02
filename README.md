@@ -1,8 +1,11 @@
 # TODO
 
+- create own multi select component
+
 - on calendar click - add color to selection
   - on save 'grey' out the selection but show it there
   - how to edit those?
+    - on click tooltip comes out with delete or edit icons
 - on form submit the form itself turns into the row and a new form spawns on the top of the list
 - save theme in local storage
 - date selector
@@ -42,6 +45,11 @@
 
 # UX improvements
 
+- clendar:
+  - selected state for button
+  - show selected days amount (before save)
+  - button for jumping to 'today' (only shows up when to on todays month)
+  - display start and end date as text somewhere - show days between - maybe 3 circles (date - days - date)
 - animate outline when error state happens
 - create tutorial that walks you through the page
 - color picker appear nicely
