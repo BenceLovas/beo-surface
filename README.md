@@ -1,7 +1,11 @@
 # TODO
 
+- dark mode selector
 - create own multi select component
-- round highlight on calendar select
+  - selected ones elevate more
+  - when not selected '+', when selected 'x'
+- sortable list element in dark mode (maybe change the right side to 6 dots icon)
+- fast but delayed showup of elements on load
 
 - on calendar click - add color to selection
   - on save 'grey' out the selection but show it there
@@ -9,14 +13,6 @@
     - on click tooltip comes out with delete or edit icons
 - on form submit the form itself turns into the row and a new form spawns on the top of the list
 - save theme in local storage
-- date selector
-  - click first date - click last date
-  - highlight current date
-  - show current month
-  - can use go backwards in time? (yes?)
-  - hover effect
-  - bold numbers for start and end date
-  - month change option
 
 * follow patter to make things that are clickable round, and what is not should be a rectangle (or maybe a something with a small border radius)
 * color picker - show/hide animation
@@ -46,11 +42,13 @@
 
 # UX improvements
 
+- title for skill abrr
 - clendar:
   - selected state for button
   - show selected days amount (before save)
   - button for jumping to 'today' (only shows up when to on todays month)
   - display start and end date as text somewhere - show days between - maybe 3 circles (date - days - date)
+- emp row - lock input fields and button to top on expand
 - animate outline when error state happens
 - create tutorial that walks you through the page
 - color picker appear nicely
